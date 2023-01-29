@@ -1,7 +1,18 @@
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import './App.css';
 
 function App() {
   return (
+    <>
+      <AppBar>
+        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
+          <Typography>ah!</Typography>
+          <Box sx={{display: 'flex', gap: 5}}>
+            <Typography>info</Typography>
+            <Typography>portfolio</Typography>
+          </Box>
+        </Toolbar>
+      </AppBar>
     <div className="App">
       <header className="App-header">
         <img src="Octocat.png" className="App-logo" alt="logo" />
@@ -23,6 +34,7 @@ function App() {
         </p>
       </header>
     </div>
+    </>
   );
 }
 
