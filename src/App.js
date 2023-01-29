@@ -17,6 +17,7 @@ function App() {
       <Navbar />
       <Container>
         <Typography fontFamily={'Playfair Display'} sx={{fontSize: 50}} textAlign='center'>who am i?</Typography>
+        <img style={{margin: 5, float: 'right', height: 300, borderRadius: '5%'}} alt='selfie of allie' src={`${process.env.PUBLIC_URL}/images/allie.png`} />
         <Typography>
           I'm Allie Howe, a Computer Science BSc (Hons) graduate from the University of Lincoln, currently working for music tech startup <NewTabLink href='http://clicknclear.com/'>ClicknClear</NewTabLink> as a Graduate Software Engineer.
         </Typography>
