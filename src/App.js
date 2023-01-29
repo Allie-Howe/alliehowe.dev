@@ -32,16 +32,14 @@ function App() {
           <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography>ah!</Typography>
             <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
-              <Typography>info</Typography>
-              <Typography>portfolio</Typography>
+              {navItems.map((item, index) => (
+                <Typography key={index}>{item}</Typography>
+              ))}
             </Box>
-            <Box sx={{display: {xs: 'unset', md: 'none'}}}>
+            <Box sx={{display: {md: 'none'}}}>
               <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
                 onClick={() => setDrawerOpen(!drawerOpen)}
-                sx={{ mr: 2, display: { sm: 'none' } }}
+                sx={{ mr: 2 }}
               >
                 <MenuIcon />
               </IconButton>
@@ -56,7 +54,7 @@ function App() {
           onClose={() => setDrawerOpen(false)}
           ModalProps={{ keepMounted: true }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', md: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%' },
 
           }}
