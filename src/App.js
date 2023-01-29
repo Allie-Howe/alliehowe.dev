@@ -1,5 +1,5 @@
 import { Box, Container, CssBaseline, Link, ThemeProvider, Typography } from '@mui/material';
-import { Navbar } from './Navbar';
+import { HeadingText, Navbar } from './Navbar';
 import { theme } from './theme';
 
 const NewTabLink = ({ href, children }) => (
@@ -16,7 +16,7 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Container>
-        <Typography fontFamily={'Playfair Display'} sx={{fontSize: 50}} textAlign='center'>who am i?</Typography>
+        <HeadingText sx={{fontSize: 50}} >who am i?</HeadingText>
         <img style={{margin: 5, float: 'right', height: 300, borderRadius: '5%'}} alt='selfie of allie' src={`${process.env.PUBLIC_URL}/images/allie.png`} />
         <Typography>
           I'm Allie Howe, a Computer Science BSc (Hons) graduate from the University of Lincoln, currently working for music tech startup <NewTabLink href='http://clicknclear.com/'>ClicknClear</NewTabLink> as a Graduate Software Engineer.
