@@ -1,40 +1,26 @@
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
-import './App.css';
+import { AppBar, Box, Container, createTheme, CssBaseline, ThemeProvider, Toolbar, Typography } from '@mui/material';
+
+const theme = createTheme();
 
 function App() {
   return (
-    <>
-      <AppBar>
-        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-          <Typography>ah!</Typography>
-          <Box sx={{display: 'flex', gap: 5}}>
-            <Typography>info</Typography>
-            <Typography>portfolio</Typography>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
-    </>
+    <ThemeProvider theme={theme}>
+      <Box sx={{minHeight: '100vh', backgroundColor: 'black'}}>
+      <CssBaseline />
+        <AppBar position='sticky'>
+          <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
+            <Typography>ah!</Typography>
+            <Box sx={{display: 'flex', gap: 5}}>
+              <Typography>info</Typography>
+              <Typography>portfolio</Typography>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Container sx={{backgroundColor: 'black'}}>
+          <Typography textAlign='center'>hello</Typography>
+        </Container>
+      </Box>
+    </ThemeProvider>
   );
 }
 
