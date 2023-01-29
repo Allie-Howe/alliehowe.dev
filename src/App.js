@@ -3,7 +3,7 @@ import { Navbar } from './Navbar';
 import { theme } from './theme';
 
 const NewTabLink = ({ href, children }) => (
-  <Link href={href} target='_blank' rel='noreferrer'>
+  <Link color='#faa' href={href} target='_blank' rel='noreferrer'>
     {children}
   </Link>
 );
@@ -16,7 +16,7 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Container>
-        <Typography textAlign='center'>who am i?</Typography>
+        <Typography fontFamily={'Playfair Display'} sx={{fontSize: 50}} textAlign='center'>who am i?</Typography>
         <Typography>
           I'm Allie Howe, a Computer Science BSc (Hons) graduate from the University of Lincoln, currently working for music tech startup <NewTabLink href='http://clicknclear.com/'>ClicknClear</NewTabLink> as a Graduate Software Engineer.
         </Typography>
