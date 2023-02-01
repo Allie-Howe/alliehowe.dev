@@ -5,7 +5,7 @@ import { useState } from 'react';
 const navItems = ['info', 'portfolio'];
 
 export const HeadingText = ({ children, sx, ...props }) => (
-  <Typography {...props} sx={{ ...sx, fontFamily: 'Playfair Display', textAlign:'center' }}>{children}</Typography>
+  <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign:'center', ...sx }}>{children}</Typography>
 );
 
 export const Navbar = () => {
