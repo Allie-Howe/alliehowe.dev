@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Computational Designs",
+    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "imgUrl": "Checkers.gif",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "GO Make Friends",
+    "description": "My Project Description",
+    "imgUrl": "pokemon-go.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "ArcCheck Archiving System",
+    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "imgUrl": "arccheck.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Ellipses",
+    "description": "My Project Description",
+    "imgUrl": "ellipses.jpg",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Where's Wally?",
+    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "imgUrl": "wally.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "PollAnywhere",
+    "description": "My Project Description",
+    "imgUrl": "poll-anywhere.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Machine Learning",
+    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "imgUrl": "ml2crop.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Today's Vibe",
+    "description": "My Project Description",
+    "imgUrl": "vibe-bot.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "Password Tester",
+    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "imgUrl": "pass-tester.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "js clock",
+    "description": "My Project Description",
+    "imgUrl": "clock.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "csh line",
+    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "imgUrl": "csh-line.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "whyl",
+    "description": "My Project Description",
+    "imgUrl": "whyl.png",
+    "buttons": [
+      {
+        "title": "My Button",
+        "url": ""
+      }
+    ]
+  }
+]
