@@ -2,7 +2,8 @@
   {
     "name": "Computational Designs",
     "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    "imgUrl": "Checkers.gif",
+    "imgUrl": "checkers.webm",
+    "isVideo": true,
     "buttons": [
       {
         "title": "My Button",
