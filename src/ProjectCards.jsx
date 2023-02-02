@@ -16,7 +16,7 @@ export const ProjectCards = () => {
         // TODO: Add hover behaviour
         <Paper sx={{p: 1, display: 'flex', flexDirection: 'column'}} key={index}>
           <HeadingText sx={{textAlign: 'left'}}>{project.name}</HeadingText>
-          <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} alt={`${project.name} preview`} src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} />
+          <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} loading='lazy' alt={`${project.name} preview`} src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} />
           <Typography variant='body2'>{project.description}</Typography>
         </Paper>
       ))}
