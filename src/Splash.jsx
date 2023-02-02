@@ -1,6 +1,8 @@
 import { Box } from '@mui/material'
 import { HeadingText } from './Navbar'
 
+import './Splash.scss';
+
 const icons = [
   {imgPath: 'twitter', link: 'https://www.twitter.com/ScaredComputers'},
   {imgPath: 'email', link: 'mailto:howeisallie@gmail.com'},
@@ -10,7 +12,7 @@ const icons = [
 
 export const Splash = () => {
   return (
-    <Box sx={{width: '100%', backgroundColor: 'white', p: '60px 0'}} className="splash">
+    <Box sx={{width: '100%', p: '60px 0'}} className="splash">
       <HeadingText sx={{fontSize: 175, color: '#000A'}}>hey.</HeadingText>
       <Box sx={{display: 'flex', justifyContent: 'center', gap: 5, mt: 5}}>
         {
