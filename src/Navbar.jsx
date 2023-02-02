@@ -31,7 +31,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <AppBar position='sticky' sx={{boxShadow: '0 0 20px rgba(255, 255, 255, 0.7)'}}>
+      <AppBar sx={{boxShadow: '0 0 20px rgba(255, 255, 255, 0.7)'}}>
       <Toolbar sx={{display: 'flex', justifyContent: 'space-between', m: 1}}>
         <HeadingText variant='h4'>ah!</HeadingText>
         <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
