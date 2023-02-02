@@ -11,14 +11,17 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <div ref={topRef} />
       <Box sx={{minHeight: '100vh'}}>
         <CssBaseline />
-        <Navbar ref={topRef} position={position} />
-        <Splash ref={splashRef} />
-        <Container sx={{display: 'flex', flexDirection: 'column', gap: 5}}>
-          <About />
-          <ProjectCards />
-        </Container>
+        <Navbar position={position} />
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Splash ref={splashRef} />
+          <Container sx={{display: 'flex', flexDirection: 'column', gap: 5}}>
+            <About />
+            <ProjectCards />
+          </Container>
+        </Box>
       </Box>
     </ThemeProvider>
   );

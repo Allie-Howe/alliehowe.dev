@@ -8,7 +8,7 @@ export const HeadingText = ({ children, sx, ...props }) => (
   <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign:'center', ...sx }}>{children}</Typography>
 );
 
-export const Navbar = forwardRef(({position}, ref) => {
+export const Navbar = forwardRef(({position}) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const container = window.document.body;
 
@@ -47,19 +47,8 @@ export const Navbar = forwardRef(({position}, ref) => {
     styles.backdropFilter = 'blur(6px)'
   }
 
-  // const navbarStyle = position === 'top' ? {
-  //   background: 'transparent',
-  //   boxShadow: 'none',
-  //   color: '#000A'
-  // } : {
-  //   boxShadow: '0 0 20px rgba(255, 255, 255, 0.7)',
-  //   backgroundColor: '#0006',
-  //   backdropFilter: 'blur(6px)',
-  // }
-
   return (
     <>
-      <div ref={ref} />
       <AppBar sx={{transition: '.4s', ...styles }}>
       <Toolbar sx={{display: 'flex', justifyContent: 'space-between', m: 1}}>
         <HeadingText variant='h4'>ah!</HeadingText>
