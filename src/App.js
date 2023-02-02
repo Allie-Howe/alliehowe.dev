@@ -4,14 +4,17 @@ import { Navbar } from './Navbar';
 import { ProjectCards } from './ProjectCards';
 import { Splash } from './Splash';
 import { darkTheme } from './Themes/darkTheme';
+import { useNavbarObservers } from './useNavbarObservers';
 
 function App() {
+  const { splashRef, topRef, position } = useNavbarObservers();
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Box sx={{minHeight: '100vh'}}>
         <CssBaseline />
-        <Navbar />
-        <Splash />
+        <Navbar ref={topRef} position={position} />
+        <Splash ref={splashRef} />
         <Container sx={{display: 'flex', flexDirection: 'column', gap: 5}}>
           <About />
           <ProjectCards />

@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { forwardRef } from 'react';
 import { HeadingText } from './Navbar'
 
 import './Splash.scss';
@@ -10,8 +11,8 @@ const icons = [
   {imgPath: 'linkedin', link: 'https://linkedin.com/in/Allie-Howe'}
 ];
 
-export const Splash = () => {
-  return (
+export const Splash = forwardRef((_, ref) => {
+  return (<>
     <Box sx={{width: '100%', p: '60px 0'}} className="splash">
       <HeadingText sx={{fontSize: 175, color: '#000A'}}>hey.</HeadingText>
       <Box sx={{display: 'flex', justifyContent: 'center', gap: 5, mt: 5}}>
@@ -24,5 +25,6 @@ export const Splash = () => {
         }
       </Box>
     </Box>
-  )
-}
+    <div ref={ref} />
+  </>)
+})
