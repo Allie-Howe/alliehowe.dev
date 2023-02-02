@@ -1,6 +1,6 @@
 import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
+import { createRef, useEffect, useState } from 'react';
 
 const navItems = ['info', 'portfolio'];
 
@@ -11,27 +11,53 @@ export const HeadingText = ({ children, sx, ...props }) => (
 export const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const container = window.document.body;
+  const [position, setPosition] = useState('top');
+  const top = createRef()
+
+  useEffect(() => {
+    const topObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setPosition(entry.isIntersecting ? 'top' : 'scrolled');
+      });
+    });
+    if (top.current) {
+      topObs.observe(top.current);
+    }
+  }, [top]);
 
   // TODO: Style navbar/drawer on mobile
-  const drawer = <Box onClick={() => setDrawerOpen(!drawerOpen)} sx={{ textAlign: 'center' }}>
-  <Typography variant="h6" sx={{ my: 2 }}>
-    MUI
-  </Typography>
-  <Divider />
-  <List>
-    {navItems.map((item) => (
-      <ListItem key={item} disablePadding>
-        <ListItemButton sx={{ textAlign: 'center' }}>
-          <ListItemText primary={item} />
-        </ListItemButton>
-      </ListItem>
-    ))}
-  </List>
-</Box>
+  const drawer = (
+    <Box onClick={() => setDrawerOpen(!drawerOpen)} sx={{ textAlign: 'center' }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        MUI
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const navbarStyle = position === 'top' ? {
+    background: 'transparent',
+    boxShadow: 'none',
+    color: '#000A'
+  } : {
+    boxShadow: '0 0 20px rgba(255, 255, 255, 0.7)',
+    backgroundColor: '#0006',
+    backdropFilter: 'blur(6px)',
+  }
 
   return (
     <>
-      <AppBar sx={{boxShadow: '0 0 20px rgba(255, 255, 255, 0.7)'}}>
+      <div ref={top} />
+      <AppBar sx={{transition: '.4s', ...navbarStyle }}>
       <Toolbar sx={{display: 'flex', justifyContent: 'space-between', m: 1}}>
         <HeadingText variant='h4'>ah!</HeadingText>
         <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
