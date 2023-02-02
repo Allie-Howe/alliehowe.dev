@@ -13,7 +13,7 @@ const icons = [
 
 export const Splash = forwardRef((_, ref) => {
   return (<>
-    <Box sx={{width: '100%', p: '60px 0'}} className="splash">
+    <Box sx={{width: '100%', p: '60px 0', boxShadow: '0 5px 20px #FFF8'}} className="splash">
       <HeadingText sx={{fontSize: 175, color: '#000A'}}>hey.</HeadingText>
       <Box sx={{display: 'flex', justifyContent: 'center', gap: 5, mt: 5}}>
         {
