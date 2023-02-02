@@ -60,6 +60,7 @@ export const Navbar = forwardRef(({position}) => {
         <Box sx={{display: {md: 'none'}}}>
           <IconButton
             onClick={() => setDrawerOpen(!drawerOpen)}
+            aria-label="open drawer"
             sx={{ mr: 2 }}
           >
             <MenuIcon />
