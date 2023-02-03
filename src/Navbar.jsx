@@ -31,6 +31,7 @@ export const Navbar = forwardRef(({position}) => {
     </Box>
   );
 
+  // TODO: Make this more elegant
   const styles = {}
   if (position === 'top') {
     styles.background = 'transparent'
@@ -38,13 +39,13 @@ export const Navbar = forwardRef(({position}) => {
     styles.color = '#000A'
   } else if (position === 'dark') {
     styles.boxShadow = '0 0 20px rgba(255, 255, 255, 0.7)'
-    styles.backgroundColor = '#000B'
-    styles.backdropFilter = 'blur(6px)'
+    styles.backgroundColor = '#000D'
+    styles.backdropFilter = 'blur(4px)'
   } else {
     styles.color = '#000A'
     styles.boxShadow = '0 0 20px rgba(255, 255, 255, 0.7)'
     styles.backgroundColor = '#FFF6'
-    styles.backdropFilter = 'blur(6px)'
+    styles.backdropFilter = 'blur(4px)'
   }
 
   return (
