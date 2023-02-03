@@ -18,8 +18,8 @@ export const Splash = forwardRef((_, ref) => {
       <Box sx={{display: 'flex', justifyContent: 'center', gap: 5, mt: 5}}>
         {
           icons.map(({imgPath, link}, index) => (
-            <a href={link} target='_blank' rel='noopener noreferrer'>
-              <img key={index} alt={imgPath} src={`${process.env.PUBLIC_URL}/images/icons/${imgPath}.svg`} width={isMobile ? '50px' : '100px'} />
+            <a href={link} key={index} target='_blank' rel='noopener noreferrer'>
+              <img alt={imgPath} src={`${process.env.PUBLIC_URL}/images/icons/${imgPath}.svg`} width={isMobile ? '50px' : '100px'} />
             </a>
           ))
         }

@@ -24,7 +24,6 @@ export const About = () => {
     <Box>
       <AnchorLink id="info" />
       <HeadingText sx={{fontSize: 50}} >who am i?</HeadingText>
-      {/* TODO: Should be responsive */}
       <img style={{margin: '5px auto', display: 'block', verticalAlign: 'middle', float: isMobile ? 'none' : 'right', height: isMobile ? 150 : 300, borderRadius: '5%'}} alt='selfie of allie' src={`${process.env.PUBLIC_URL}/images/allie.webp`} />
       <Box sx={{display: 'flex', flexDirection: 'column', gap: 2}}>
         <Typography>

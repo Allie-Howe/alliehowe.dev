@@ -16,7 +16,6 @@ export const ProjectCards = () => {
     <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 2}}>
     <HeadingText sx={{fontSize: 50}} >what have i done?</HeadingText>
     <Typography>Oh god, what have I done? These are just a few of the projects I've worked on over the years:</Typography>
-    {/* TODO: Columns should be responsive */}
       <Masonry columns={isMobile ? 1 : 3} spacing={2}>
         {projects.map((project, index) => (
           // TODO: Add hover behaviour

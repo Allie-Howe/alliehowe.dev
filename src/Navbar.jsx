@@ -1,6 +1,6 @@
 import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 import { FancyLink } from './About';
 
 const navItems = ['info', 'portfolio'];
@@ -9,7 +9,7 @@ export const HeadingText = ({ children, sx, ...props }) => (
   <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign:'center', ...sx }}>{children}</Typography>
 );
 
-export const Navbar = forwardRef(({position}) => {
+export const Navbar = ({position}) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const container = window.document.body;
 
@@ -56,7 +56,7 @@ export const Navbar = forwardRef(({position}) => {
         <HeadingText variant='h4'>ah!</HeadingText>
         <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
           {navItems.map((item, index) => (
-            <FancyLink sx={{color: 'unset'}} underline='none' href={`#${item}`}>
+            <FancyLink key={index} sx={{color: 'unset'}} underline='none' href={`#${item}`}>
               <HeadingText variant='h6' key={index}>{item}</HeadingText>
             </FancyLink>
           ))}
@@ -88,4 +88,4 @@ export const Navbar = forwardRef(({position}) => {
     </Drawer>
   </>
   )
-})
+};
