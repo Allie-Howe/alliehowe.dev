@@ -1,5 +1,7 @@
 import { createRef, useEffect, useState } from 'react';
 
+const splashOptions = { rootMargin: "-100px 0px 0px 0px" };
+
 export const useNavbarObservers = () => {
   const splashRef = createRef();
   const topRef = createRef();
@@ -10,7 +12,7 @@ export const useNavbarObservers = () => {
       entries.forEach((entry) => {
         setPosition(entry.isIntersecting ? 'light' : 'dark');
       });
-    });
+    }, splashOptions);
     if (splashRef.current) {
       splashObs.observe(splashRef.current);
     }
