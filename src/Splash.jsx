@@ -2,8 +2,6 @@ import { Box } from '@mui/material'
 import { forwardRef } from 'react';
 import { HeadingText } from './Navbar'
 
-import './Splash.scss';
-
 const icons = [
   {imgPath: 'twitter', link: 'https://www.twitter.com/ScaredComputers'},
   {imgPath: 'email', link: 'mailto:howeisallie@gmail.com'},

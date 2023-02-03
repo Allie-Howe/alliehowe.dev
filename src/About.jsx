@@ -3,10 +3,16 @@ import { HeadingText } from './Navbar'
 
 
 const NewTabLink = ({ href, children }) => (
-  <Link color='#faa' href={href} target='_blank' rel='noreferrer'>
+  <FancyLink href={href} target='_blank' rel='noreferrer'>
+    {children}
+  </FancyLink>
+);
+export const FancyLink = ({ href, children, ...restProps }) => (
+  <Link className='fancy-link' underline='none' color='#faa' href={href} {...restProps}>
     {children}
   </Link>
-);
+)
+
 export const AnchorLink = ({id}) => (
   <span style={{ position: 'relative', top: '-90px' }} id={id} />
 );

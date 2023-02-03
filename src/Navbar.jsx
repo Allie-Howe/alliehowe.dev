@@ -1,6 +1,7 @@
-import { AppBar, Box, Divider, Drawer, IconButton, Link, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { forwardRef, useState } from 'react';
+import { FancyLink } from './About';
 
 const navItems = ['info', 'portfolio'];
 
@@ -55,9 +56,9 @@ export const Navbar = forwardRef(({position}) => {
         <HeadingText variant='h4'>ah!</HeadingText>
         <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
           {navItems.map((item, index) => (
-            <Link href={`#${item}`}>
+            <FancyLink sx={{color: 'unset'}} underline='none' href={`#${item}`}>
               <HeadingText variant='h6' key={index}>{item}</HeadingText>
-            </Link>
+            </FancyLink>
           ))}
         </Box>
         <Box sx={{display: {md: 'none'}}}>
