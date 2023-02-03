@@ -10,6 +10,8 @@ const icons = [
 ];
 
 export const Splash = forwardRef((_, ref) => {
+  // TODO: Find a universal way to detect mobile
+  const isMobile = window.innerWidth < 600;
   return (<>
     <Box sx={{width: '100%', p: '60px 0', boxShadow: '0 5px 20px #FFF8'}} className="splash">
       <HeadingText sx={{fontSize: 175, color: '#000A'}}>hey.</HeadingText>
@@ -17,7 +19,7 @@ export const Splash = forwardRef((_, ref) => {
         {
           icons.map(({imgPath, link}, index) => (
             <a href={link} target='_blank' rel='noopener noreferrer'>
-              <img key={index} alt={imgPath} src={`${process.env.PUBLIC_URL}/images/icons/${imgPath}.svg`} width='100px' />
+              <img key={index} alt={imgPath} src={`${process.env.PUBLIC_URL}/images/icons/${imgPath}.svg`} width={isMobile ? '50px' : '100px'} />
             </a>
           ))
         }
