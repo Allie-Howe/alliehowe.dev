@@ -1,5 +1,6 @@
 import { Masonry } from '@mui/lab';
 import { Box, Paper, ThemeProvider, Typography } from '@mui/material';
+import { AnchorLink } from './About';
 import { HeadingText } from './Navbar';
 import projects from './projects.json';
 import { lightTheme } from './Themes/lightTheme';
@@ -7,6 +8,7 @@ import { lightTheme } from './Themes/lightTheme';
 export const ProjectCards = () => {
   return (
   <Box>
+    <AnchorLink id="portfolio" />
     <ThemeProvider theme={lightTheme}>
     <HeadingText sx={{fontSize: 50}} >what have i done?</HeadingText>
     <Typography>Oh god, what have I done? These are just a few of the projects I've worked on over the years:</Typography>

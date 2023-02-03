@@ -1,4 +1,4 @@
-import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Divider, Drawer, IconButton, Link, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { forwardRef, useState } from 'react';
 
@@ -54,7 +54,9 @@ export const Navbar = forwardRef(({position}) => {
         <HeadingText variant='h4'>ah!</HeadingText>
         <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
           {navItems.map((item, index) => (
-            <HeadingText variant='h6' key={index}>{item}</HeadingText>
+            <Link href={`#${item}`}>
+              <HeadingText variant='h6' key={index}>{item}</HeadingText>
+            </Link>
           ))}
         </Box>
         <Box sx={{display: {md: 'none'}}}>

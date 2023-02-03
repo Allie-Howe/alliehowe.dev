@@ -7,10 +7,14 @@ const NewTabLink = ({ href, children }) => (
     {children}
   </Link>
 );
+export const AnchorLink = ({id}) => (
+  <span style={{ position: 'relative', top: '-90px' }} id={id} />
+);
 
 export const About = () => {
   return (
     <Box>
+      <AnchorLink id="info" />
       <HeadingText sx={{fontSize: 50}} >who am i?</HeadingText>
       {/* TODO: Should be responsive */}
       <img style={{margin: 5, float: 'right', height: 300, borderRadius: '5%'}} alt='selfie of allie' src={`${process.env.PUBLIC_URL}/images/allie.webp`} />
