@@ -1,4 +1,4 @@
-import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Divider, Drawer, IconButton, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { FancyLink } from './About';
@@ -9,26 +9,24 @@ export const HeadingText = ({ children, sx, ...props }) => (
   <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign:'center', ...sx }}>{children}</Typography>
 );
 
+const NavbarItem = ({item, sx}) => (
+  <FancyLink sx={{color: 'unset', ...sx}} underline='none' href={`#${item}`}>
+    <HeadingText variant='h6'>{item}</HeadingText>
+  </FancyLink>
+);
+
 export const Navbar = ({position}) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const container = window.document.body;
 
   // TODO: Style navbar/drawer on mobile
   const drawer = (
-    <Box onClick={() => setDrawerOpen(!drawerOpen)} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+    <Box onClick={() => setDrawerOpen(!drawerOpen)} sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 1 }}>
+      <Typography variant="h6" sx={{ my: 2 }}>allie howe</Typography>
       <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      {navItems.map((item, index) => (
+        <NavbarItem key={index} sx={{ textAlign: 'center' }} item={item} />
+      ))}
     </Box>
   );
 
@@ -56,16 +54,14 @@ export const Navbar = ({position}) => {
         <HeadingText variant='h4'>ah!</HeadingText>
         <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
           {navItems.map((item, index) => (
-            <FancyLink key={index} sx={{color: 'unset'}} underline='none' href={`#${item}`}>
-              <HeadingText variant='h6' key={index}>{item}</HeadingText>
-            </FancyLink>
+            <NavbarItem key={index} item={item} />
           ))}
         </Box>
         <Box sx={{display: {md: 'none'}}}>
           <IconButton
             onClick={() => setDrawerOpen(!drawerOpen)}
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, color: styles.color }}
           >
             <MenuIcon />
           </IconButton>
@@ -80,7 +76,7 @@ export const Navbar = ({position}) => {
       ModalProps={{ keepMounted: true }}
       sx={{
         display: { xs: 'block', md: 'none' },
-        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%' },
+        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', backgroundColor: '#000D', backdropFilter: 'blur(4px)' },
 
       }}
     >
