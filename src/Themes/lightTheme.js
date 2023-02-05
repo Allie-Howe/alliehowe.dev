@@ -12,7 +12,7 @@ export const lightTheme = createTheme({
       primary: '#666',
     },
     background: {
-      paper: 'rgba(248, 248, 255, 0.9333333333)',
+      paper: '#f8f8ffee',
     }
   },
   typography: {
