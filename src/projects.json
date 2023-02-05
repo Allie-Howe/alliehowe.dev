@@ -1,7 +1,7 @@
 [
   {
     "name": "Computational Designs",
-    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "description": "Processing & p5.js experiments - minimal looping GIFs I've made throughout the years",
     "imgUrl": "checkers.webm",
     "isVideo": true,
     "buttons": [
@@ -13,7 +13,7 @@
   },
   {
     "name": "GO Make Friends",
-    "description": "My Project Description",
+    "description": "React.JS & Firestore experiment - webpage to share Pokemon Go friend codes",
     "imgUrl": "pokemon-go.png",
     "buttons": [
       {
@@ -24,7 +24,7 @@
   },
   {
     "name": "ArcCheck Archiving System",
-    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "description": "University project - Site proposed for Lincoln County Hospital to automate the archiving of key data from ArcCheck Radiotherapy scans",
     "imgUrl": "arccheck.png",
     "buttons": [
       {
@@ -35,7 +35,7 @@
   },
   {
     "name": "Ellipses",
-    "description": "My Project Description",
+    "description": "p5.js experiment - changing sine & cosine ratio with respect to time when translating x and y positions, to form circles, waves and more. Uses dat.gui to allow for user to play with variables.",
     "imgUrl": "ellipses.jpg",
     "buttons": [
       {
@@ -46,7 +46,7 @@
   },
   {
     "name": "Where's Wally?",
-    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "description": "University project - a C++ application which performs a Nearest Neighbour search on a Where's Wally scene to finally find him after all this time.",
     "imgUrl": "wally.png",
     "buttons": [
       {
@@ -57,7 +57,7 @@
   },
   {
     "name": "PollAnywhere",
-    "description": "My Project Description",
+    "description": "University project - a social media-like platform centered around asking & answering polls. Mobile app created in React Native.",
     "imgUrl": "poll-anywhere.png",
     "buttons": [
       {
@@ -68,7 +68,7 @@
   },
   {
     "name": "Machine Learning",
-    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "description": "University projects - Implementing K-means clustering in Python, and creating Artificial Neural Network and Random Forest classification models",
     "imgUrl": "ml2crop.png",
     "buttons": [
       {
@@ -79,7 +79,7 @@
   },
   {
     "name": "Today's Vibe",
-    "description": "My Project Description",
+    "description": "Twitter API experiment - a custom bot which tweets a random nonsensical \"vibe\" every day at noon.",
     "imgUrl": "vibe-bot.png",
     "buttons": [
       {
@@ -90,7 +90,7 @@
   },
   {
     "name": "Password Tester",
-    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "description": "React.JS experiment - a component which checks and scores passwords based on their security, and gives the user feedback on how to improve their passwords.",
     "imgUrl": "pass-tester.png",
     "buttons": [
       {
@@ -101,7 +101,7 @@
   },
   {
     "name": "js clock",
-    "description": "My Project Description",
+    "description": "Vanilla JavaScript experiment - a basic, minimalist animated clock. Not much to say about this one, honestly! \n Note: not styled for mobile",
     "imgUrl": "clock.png",
     "buttons": [
       {
@@ -112,7 +112,7 @@
   },
   {
     "name": "csh line",
-    "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "description": "a clone/copy of Chris Shier's Line, a JS canvas-based application to allow for user-generated animations reminiscent of old iTunes and Windows Media Player music visualisers. Throughout understanding this codebase, I used dat.gui to allow for editing variables.",
     "imgUrl": "csh-line.png",
     "buttons": [
       {
@@ -123,7 +123,7 @@
   },
   {
     "name": "whyl",
-    "description": "My Project Description",
+    "description": "CSS experiment - a fictional automobile website designed simply because I thought the background looking like a moving road would be cool.",
     "imgUrl": "whyl.png",
     "buttons": [
       {
