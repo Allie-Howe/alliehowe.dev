@@ -47,7 +47,7 @@ export const ProjectCards = () => {
               <Typography variant='body2'>{project.description}</Typography>
               <Box sx={{display: 'flex', justifyContent: 'center', gap: 2}}>
                 {project.buttons.map((button) => (
-                  <Button sx={{flex: 1}} className='button' variant='contained'><Typography variant='caption'>{button.title}</Typography></Button>
+                  <Button href={`${process.env.PUBLIC_URL}/${button.url}`} sx={{flex: 1}} className='button' variant='contained'><Typography variant='caption'>{button.title}</Typography></Button>
                 ))}
               </Box>
             </Paper>
