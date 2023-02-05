@@ -6,7 +6,7 @@
     "isVideo": true,
     "buttons": [
       {
-        "title": "My Button",
+        "title": "overwhelm your eyes",
         "url": ""
       }
     ]
@@ -17,7 +17,7 @@
     "imgUrl": "pokemon-go.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "visit",
         "url": ""
       }
     ]
@@ -28,7 +28,7 @@
     "imgUrl": "arccheck.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "read dissertation",
         "url": ""
       }
     ]
@@ -39,7 +39,7 @@
     "imgUrl": "ellipses.jpg",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "play around",
         "url": ""
       }
     ]
@@ -48,12 +48,7 @@
     "name": "Where's Wally?",
     "description": "University project - a C++ application which performs a Nearest Neighbour search on a Where's Wally scene to finally find him after all this time.",
     "imgUrl": "wally.png",
-    "buttons": [
-      {
-        "title": "My Button",
-        "url": ""
-      }
-    ]
+    "buttons": []
   },
   {
     "name": "PollAnywhere",
@@ -61,7 +56,7 @@
     "imgUrl": "poll-anywhere.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "view demo video",
         "url": ""
       }
     ]
@@ -72,7 +67,11 @@
     "imgUrl": "ml2crop.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "Assessment 1",
+        "url": ""
+      },
+      {
+        "title": "Assessment 2",
         "url": ""
       }
     ]
@@ -83,7 +82,7 @@
     "imgUrl": "vibe-bot.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "visit",
         "url": ""
       }
     ]
@@ -94,7 +93,7 @@
     "imgUrl": "pass-tester.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "visit",
         "url": ""
       }
     ]
@@ -105,7 +104,7 @@
     "imgUrl": "clock.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "visit",
         "url": ""
       }
     ]
@@ -116,7 +115,7 @@
     "imgUrl": "csh-line.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "try it yourself",
         "url": ""
       }
     ]
@@ -127,7 +126,7 @@
     "imgUrl": "whyl.png",
     "buttons": [
       {
-        "title": "My Button",
+        "title": "visit",
         "url": ""
       }
     ]
