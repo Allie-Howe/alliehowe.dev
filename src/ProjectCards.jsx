@@ -5,8 +5,14 @@ import { HeadingText } from './Navbar';
 import projects from './projects.json';
 import { lightTheme } from './Themes/lightTheme';
 
+const changeAlpha = (hex, hexAlpha) => {
+  return hex.slice(0, 7) + hexAlpha;
+}
+
 const styles = {
   '&:hover': {
+    backgroundColor: changeAlpha(lightTheme.palette.background.paper, 'dd'),
+    transition: '0.2s ease-in-out',
     '.button': {
       backgroundColor: '#faa',
       '&:hover': {
@@ -36,12 +42,14 @@ export const ProjectCards = () => {
                 ? <video style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} autoPlay muted loop>
                     <source src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} type='video/mp4' />
                   </video>
-                : <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} loading='lazy' alt={`${project.name} preview`} src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} />
+                : <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} alt={`${project.name} preview`} src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} />
               }
               <Typography variant='body2'>{project.description}</Typography>
-              {project.buttons.map((button) => (
-                <Button className='button' variant='contained'><Typography>{button.title}</Typography></Button>
-              ))}
+              <Box sx={{display: 'flex', justifyContent: 'center', gap: 2}}>
+                {project.buttons.map((button) => (
+                  <Button sx={{flex: 1}} className='button' variant='contained'><Typography variant='caption'>{button.title}</Typography></Button>
+                ))}
+              </Box>
             </Paper>
           ))}
         </Masonry>
