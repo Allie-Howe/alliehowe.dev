@@ -23,6 +23,17 @@
     ]
   },
   {
+    "name": "Old site",
+    "description": "Archive of original site, made in HTML, SCSS and JavaScript from 2020-2022. I've since migrated to React & MUI but painstakingly copied almost all the styling over!",
+    "imgUrl": "site.png",
+    "buttons": [
+      {
+        "title": "check it out",
+        "url": "https://allie-howe.github.io/alliehowe.dev"
+      }
+    ]
+  },
+  {
     "name": "ArcCheck Archiving System",
     "description": "University project - Site proposed for Lincoln County Hospital to automate the archiving of key data from ArcCheck Radiotherapy scans",
     "imgUrl": "arccheck.png",

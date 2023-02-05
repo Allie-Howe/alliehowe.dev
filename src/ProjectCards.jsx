@@ -37,7 +37,6 @@ export const ProjectCards = () => {
       <ThemeProvider theme={lightTheme}>
         <Masonry columns={isMobile ? 1 : 3} spacing={2}>
           {projects.map((project, index) => (
-            // TODO: Add hover behaviour
             <Paper sx={{py: 1, px: 2, display: 'flex', flexDirection: 'column', gap: 2, ...styles}} key={index}>
               <HeadingText sx={{textAlign: 'left'}}>{project.name}</HeadingText>
               {project.isVideo
