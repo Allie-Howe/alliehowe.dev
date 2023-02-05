@@ -3,10 +3,10 @@ import { forwardRef } from 'react';
 import { HeadingText } from './Navbar'
 
 const icons = [
-  {imgPath: 'twitter', link: 'https://www.twitter.com/ScaredComputers'},
   {imgPath: 'email', link: 'mailto:howeisallie@gmail.com'},
+  {imgPath: 'instagram', link: 'https://instagram.com/allie.on.the.web'},
   {imgPath: 'github', link: 'https://www.github.com/Allie-Howe'},
-  {imgPath: 'linkedin', link: 'https://linkedin.com/in/Allie-Howe'}
+  {imgPath: 'linkedin', link: 'https://linkedin.com/in/Allie-Howe'},
 ];
 
 export const Splash = forwardRef((_, ref) => {
