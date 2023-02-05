@@ -1,35 +1,21 @@
-import { createRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const splashOptions = { rootMargin: "-100px 0px 0px 0px" };
 
 export const useNavbarObservers = () => {
-  const splashRef = createRef();
-  const topRef = createRef();
+  const splashRef = useRef();
+  const topRef = useRef();
   const [position, setPosition] = useState('top');
 
   useEffect(() => {
-    const splashObs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        setPosition(entry.isIntersecting ? 'light' : 'dark');
-      });
-    }, splashOptions);
-    if (splashRef.current) {
-      splashObs.observe(splashRef.current);
-    }
-    // TODO: Investigate why this is necessary
-  }, []);
+    new IntersectionObserver(([entry]) => {
+      setPosition(entry.isIntersecting ? 'light' : 'dark');
+    }, splashOptions).observe(splashRef.current);
 
-  useEffect(() => {
-    const topObs = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        setPosition(entry.isIntersecting ? 'top' : 'light');
-      });
-    });
-    if (topRef.current) {
-      topObs.observe(topRef.current);
-    }
-    // TODO: Investigate why this is necessary
-  }, []);
+    new IntersectionObserver(([entry]) => {
+      setPosition(entry.isIntersecting ? 'top' : 'light');
+    }).observe(topRef.current);
+  }, [splashRef, topRef]);
 
   return {
     splashRef,
