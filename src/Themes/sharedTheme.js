@@ -4,5 +4,8 @@ export const sharedTheme = {
     fontSize: 22,
     fontWeightRegular: 200,
     fontWeightMedium: 100,
+    button: {
+      textTransform: 'lowercase',
+    }
   }
 };

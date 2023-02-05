@@ -4,6 +4,10 @@ import { sharedTheme } from './sharedTheme';
 export const lightTheme = createTheme({
   ...sharedTheme,
   palette: {
+    primary: {
+      main: '#121212',
+      dark: '#FAA',
+    },
     text: {
       primary: '#666',
     },
