@@ -1,9 +1,20 @@
 import { Masonry } from '@mui/lab';
-import { Box, Paper, ThemeProvider, Typography } from '@mui/material';
+import { Box, Button, Paper, ThemeProvider, Typography } from '@mui/material';
 import { AnchorLink } from './About';
 import { HeadingText } from './Navbar';
 import projects from './projects.json';
 import { lightTheme } from './Themes/lightTheme';
+
+const styles = {
+  '&:hover': {
+    '.button': {
+      backgroundColor: '#faa',
+      '&:hover': {
+        backgroundColor: '#e99',
+      }
+    },
+  }
+}
 
 export const ProjectCards = () => {
   const isMobile = window.innerWidth < 600;
@@ -19,7 +30,7 @@ export const ProjectCards = () => {
         <Masonry columns={isMobile ? 1 : 3} spacing={2}>
           {projects.map((project, index) => (
             // TODO: Add hover behaviour
-            <Paper sx={{py: 1, px: 2, display: 'flex', flexDirection: 'column'}} key={index}>
+            <Paper sx={{py: 1, px: 2, display: 'flex', flexDirection: 'column', gap: 2, ...styles}} key={index}>
               <HeadingText sx={{textAlign: 'left'}}>{project.name}</HeadingText>
               {project.isVideo
                 ? <video style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} autoPlay muted loop>
@@ -28,6 +39,9 @@ export const ProjectCards = () => {
                 : <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} loading='lazy' alt={`${project.name} preview`} src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} />
               }
               <Typography variant='body2'>{project.description}</Typography>
+              {project.buttons.map((button) => (
+                <Button className='button' variant='contained'><Typography>{button.title}</Typography></Button>
+              ))}
             </Paper>
           ))}
         </Masonry>
