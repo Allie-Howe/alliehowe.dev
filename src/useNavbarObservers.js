@@ -16,7 +16,8 @@ export const useNavbarObservers = () => {
     if (splashRef.current) {
       splashObs.observe(splashRef.current);
     }
-  }, [splashRef]);
+    // TODO: Investigate why this is necessary
+  }, []);
 
   useEffect(() => {
     const topObs = new IntersectionObserver((entries) => {
@@ -27,7 +28,8 @@ export const useNavbarObservers = () => {
     if (topRef.current) {
       topObs.observe(topRef.current);
     }
-  }, [topRef]);
+    // TODO: Investigate why this is necessary
+  }, []);
 
   return {
     splashRef,
