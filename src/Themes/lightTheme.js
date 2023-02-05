@@ -10,5 +10,9 @@ export const lightTheme = createTheme({
     background: {
       paper: 'rgba(248, 248, 255, 0.9333333333)',
     }
+  },
+  typography: {
+    ...sharedTheme.typography,
+    fontWeightRegular: 400,
   }
 });
