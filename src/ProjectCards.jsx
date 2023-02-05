@@ -22,6 +22,8 @@ const styles = {
   }
 }
 
+const appendPublicIfLocal = (url) => url.startsWith('http') ? url : `${process.env.PUBLIC_URL}/${url}`;
+
 export const ProjectCards = () => {
   const isMobile = window.innerWidth < 600;
 
@@ -40,14 +42,14 @@ export const ProjectCards = () => {
               <HeadingText sx={{textAlign: 'left'}}>{project.name}</HeadingText>
               {project.isVideo
                 ? <video style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} autoPlay muted loop>
-                    <source src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} type='video/mp4' />
+                    <source src={appendPublicIfLocal(`images/previews/${project.imgUrl}`)} type='video/mp4' />
                   </video>
-                : <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} alt={`${project.name} preview`} src={`${process.env.PUBLIC_URL}/images/previews/${project.imgUrl}`} />
+                : <img style={{margin: 5, maxWidth: '100%', borderRadius: '3%'}} alt={`${project.name} preview`} src={appendPublicIfLocal(`images/previews/${project.imgUrl}`)} />
               }
               <Typography variant='body2'>{project.description}</Typography>
               <Box sx={{display: 'flex', justifyContent: 'center', gap: 2}}>
-                {project.buttons.map((button) => (
-                  <Button href={`${process.env.PUBLIC_URL}/${button.url}`} sx={{flex: 1}} className='button' variant='contained'><Typography variant='caption'>{button.title}</Typography></Button>
+                {project.buttons.map(({title, url}, index) => (
+                  <Button key={index} href={appendPublicIfLocal(url)} sx={{flex: 1}} className='button' variant='contained'><Typography variant='caption'>{title}</Typography></Button>
                 ))}
               </Box>
             </Paper>
