@@ -7,7 +7,7 @@
     "buttons": [
       {
         "title": "overwhelm your eyes",
-        "url": ""
+        "url": "https://allie-howe.github.io/alliehowe.dev/projects/designs/"
       }
     ]
   },
@@ -18,7 +18,7 @@
     "buttons": [
       {
         "title": "visit",
-        "url": ""
+        "url": "projects/react/pokemon-go/"
       }
     ]
   },
@@ -29,7 +29,7 @@
     "buttons": [
       {
         "title": "read dissertation",
-        "url": ""
+        "url": "docs/dissertation.pdf"
       }
     ]
   },
@@ -40,7 +40,7 @@
     "buttons": [
       {
         "title": "play around",
-        "url": ""
+        "url": "projects/p5/ellipses/"
       }
     ]
   },
@@ -57,7 +57,7 @@
     "buttons": [
       {
         "title": "view demo video",
-        "url": ""
+        "url": "https://www.youtube.com/watch?v=dw4Uh-CcEdY"
       }
     ]
   },
@@ -68,11 +68,11 @@
     "buttons": [
       {
         "title": "Assessment 1",
-        "url": ""
+        "url": "docs/ml1_report.pdf"
       },
       {
         "title": "Assessment 2",
-        "url": ""
+        "url": "docs/ml2_report.pdf"
       }
     ]
   },
@@ -83,7 +83,7 @@
     "buttons": [
       {
         "title": "visit",
-        "url": ""
+        "url": "https://twitter.com/TodaysVibeBot"
       }
     ]
   },
@@ -94,7 +94,7 @@
     "buttons": [
       {
         "title": "visit",
-        "url": ""
+        "url": "projects/react/password_tester/"
       }
     ]
   },
@@ -105,7 +105,7 @@
     "buttons": [
       {
         "title": "visit",
-        "url": ""
+        "url": "projects/archive/js-clock/"
       }
     ]
   },
@@ -116,7 +116,7 @@
     "buttons": [
       {
         "title": "try it yourself",
-        "url": ""
+        "url": "projects/archive/csh-line/"
       }
     ]
   },
@@ -127,7 +127,7 @@
     "buttons": [
       {
         "title": "visit",
-        "url": ""
+        "url": "projects/archive/whyl/"
       }
     ]
   }
