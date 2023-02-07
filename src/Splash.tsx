@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import { forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 import { HeadingText } from './Navbar'
 
 const icons = [
@@ -9,7 +9,7 @@ const icons = [
   { imgPath: 'linkedin', link: 'https://linkedin.com/in/Allie-Howe' },
 ];
 
-export const Splash = forwardRef((_, ref) => {
+export const Splash = forwardRef((_, ref: ForwardedRef<any>) => {
   // TODO: Find a universal way to detect mobile
   const isMobile = window.innerWidth < 600;
   return (<>
