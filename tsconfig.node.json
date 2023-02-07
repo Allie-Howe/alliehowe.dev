@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "composite": true,
     "module": "ESNext",
+    "resolveJsonModule": true,
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   }
