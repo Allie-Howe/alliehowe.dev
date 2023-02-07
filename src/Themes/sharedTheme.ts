@@ -1,4 +1,6 @@
-export const sharedTheme = {
+import { ThemeOptions } from '@mui/material';
+
+export const sharedTheme: ThemeOptions = {
   typography: {
     fontFamily: 'Montserrat, Roboto, Helvetica, Arial, sans-serif',
     fontSize: 22,
