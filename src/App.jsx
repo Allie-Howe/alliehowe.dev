@@ -12,12 +12,12 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div ref={topRef} />
-      <Box sx={{minHeight: '100vh'}}>
+      <Box sx={{ minHeight: '100vh' }}>
         <CssBaseline />
         <Navbar position={position} />
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <Splash ref={splashRef} />
-          <Container sx={{display: 'flex', flexDirection: 'column', gap: 5}}>
+          <Container sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
             <About />
             <ProjectCards />
           </Container>
