@@ -9,7 +9,7 @@ const icons = [
   { imgPath: 'linkedin', link: 'https://linkedin.com/in/Allie-Howe' },
 ];
 
-export const Splash = forwardRef((_, ref: ForwardedRef<any>) => {
+export const Splash = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
   // TODO: Find a universal way to detect mobile
   const isMobile = window.innerWidth < 600;
   return (<>

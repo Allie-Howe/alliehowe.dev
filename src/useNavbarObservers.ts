@@ -3,8 +3,8 @@ import { useRef, useEffect, useState } from 'react';
 const splashOptions = { rootMargin: "-100px 0px 0px 0px" };
 
 export const useNavbarObservers = () => {
-  const splashRef = useRef();
-  const topRef = useRef();
+  const splashRef = useRef<HTMLDivElement>();
+  const topRef = useRef<HTMLDivElement>();
   const [position, setPosition] = useState('top');
 
   useEffect(() => {
