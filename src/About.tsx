@@ -1,20 +1,21 @@
-import { Box, Link, Typography } from '@mui/material'
+import { Box, Link, LinkProps, Typography } from '@mui/material'
 import { HeadingText } from './Navbar'
 import allieImg from '/images/allie.webp'
 
 
-const NewTabLink = ({ href, children }) => (
+const NewTabLink = ({ href, children }: LinkProps) => (
   <FancyLink href={href} target='_blank' rel='noreferrer'>
     {children}
   </FancyLink>
 );
-export const FancyLink = ({ href, children, ...restProps }) => (
+export const FancyLink = ({ href, children, ...restProps }: LinkProps) => (
   <Link className='fancy-link' underline='none' color='#faa' href={href} {...restProps}>
     {children}
   </Link>
 )
 
-export const AnchorLink = ({ id }) => (
+interface AnchorLinkProps { id: string }
+export const AnchorLink = ({ id }: AnchorLinkProps) => (
   <span style={{ position: 'relative', top: '-90px' }} id={id} />
 );
 

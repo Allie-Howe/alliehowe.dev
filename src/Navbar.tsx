@@ -1,15 +1,16 @@
-import { AppBar, Box, Divider, Drawer, IconButton, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Divider, Drawer, IconButton, LinkProps, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { FancyLink } from './About';
 
 const navItems = ['info', 'portfolio'];
 
-export const HeadingText = ({ children, sx, ...props }) => (
+export const HeadingText = ({ children, sx, ...props }: LinkProps) => (
   <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign:'center', ...sx }}>{children}</Typography>
 );
 
-const NavbarItem = ({item, sx}) => (
+interface NavbarItemProps extends LinkProps { item: string }
+const NavbarItem = ({item, sx}: NavbarItemProps) => (
   <FancyLink sx={{color: 'unset', ...sx}} underline='none' href={`#${item}`}>
     <HeadingText variant='h6'>{item}</HeadingText>
   </FancyLink>
@@ -31,7 +32,7 @@ export const Navbar = ({position}) => {
   );
 
   // TODO: Make this more elegant
-  const styles = {}
+  const styles: any = {}
   if (position === 'top') {
     styles.background = 'transparent'
     styles.boxShadow = 'none'
