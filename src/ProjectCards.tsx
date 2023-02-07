@@ -5,7 +5,7 @@ import { HeadingText } from './Navbar';
 import projects from './projects.json';
 import { lightTheme } from './Themes/lightTheme';
 
-const changeAlpha = (hex, hexAlpha) => {
+const changeAlpha = (hex: string, hexAlpha: string) => {
   return hex.slice(0, 7) + hexAlpha;
 }
 
@@ -21,8 +21,6 @@ const styles = {
     },
   }
 }
-
-const appendPublicIfLocal = (url) => url.startsWith('http') ? url : url;
 
 export const ProjectCards = () => {
   const isMobile = window.innerWidth < 600;
@@ -41,14 +39,14 @@ export const ProjectCards = () => {
                 <HeadingText sx={{ textAlign: 'left' }}>{project.name}</HeadingText>
                 {project.isVideo
                   ? <video style={{ margin: 5, maxWidth: '100%', borderRadius: '3%' }} autoPlay muted loop>
-                    <source src={appendPublicIfLocal(`images/previews/${project.imgUrl}`)} type='video/mp4' />
+                    <source src={`images/previews/${project.imgUrl}`} type='video/mp4' />
                   </video>
-                  : <img style={{ margin: 5, maxWidth: '100%', borderRadius: '3%' }} alt={`${project.name} preview`} src={appendPublicIfLocal(`images/previews/${project.imgUrl}`)} />
+                  : <img style={{ margin: 5, maxWidth: '100%', borderRadius: '3%' }} alt={`${project.name} preview`} src={`images/previews/${project.imgUrl}`} />
                 }
                 <Typography variant='body2'>{project.description}</Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
                   {project.buttons.map(({ title, url }, index) => (
-                    <Button key={index} href={appendPublicIfLocal(url)} sx={{ flex: 1 }} className='button' variant='contained'><Typography variant='caption'>{title}</Typography></Button>
+                    <Button key={index} href={url} sx={{ flex: 1 }} className='button' variant='contained'><Typography variant='caption'>{title}</Typography></Button>
                   ))}
                 </Box>
               </Paper>
