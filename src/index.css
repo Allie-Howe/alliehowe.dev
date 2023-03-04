@@ -17,6 +17,10 @@
   animation: bg-anim 20s ease-in-out infinite alternate;
 }
 
+.splash>* {
+  animation: fade-in 1.75s ease-in-out;
+}
+
 @keyframes bg-anim {
   0% {
     background-position: 0% 100%;
@@ -24,6 +28,18 @@
 
   100% {
     background-position: 100% 0%;
+  }
+}
+
+@keyframes fade-in {
+
+  0%,
+  25% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
