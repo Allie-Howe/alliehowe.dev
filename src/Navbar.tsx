@@ -6,17 +6,17 @@ import { FancyLink } from './About';
 const navItems = ['info', 'portfolio'];
 
 export const HeadingText = ({ children, sx, ...props }: LinkProps) => (
-  <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign:'center', ...sx }}>{children}</Typography>
+  <Typography {...props} sx={{ fontFamily: 'Playfair Display', textAlign: 'center', ...sx }}>{children}</Typography>
 );
 
 interface NavbarItemProps extends LinkProps { item: string }
-const NavbarItem = ({item, sx}: NavbarItemProps) => (
-  <FancyLink sx={{color: 'unset', ...sx}} underline='none' href={`#${item}`}>
+const NavbarItem = ({ item, sx }: NavbarItemProps) => (
+  <FancyLink sx={{ color: 'unset', ...sx }} underline='none' href={`#${item}`}>
     <HeadingText variant='h6'>{item}</HeadingText>
   </FancyLink>
 );
 
-export const Navbar = ({position}) => {
+export const Navbar = ({ position }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const container = window.document.body;
 
@@ -50,39 +50,39 @@ export const Navbar = ({position}) => {
 
   return (
     <>
-      <AppBar sx={{transition: '.4s', ...styles }}>
-      <Toolbar sx={{display: 'flex', justifyContent: 'space-between', m: 1}}>
-        <HeadingText variant='h4'>ah!</HeadingText>
-        <Box sx={{display: {xs: 'none', md: 'flex'}, gap: 5}}>
-          {navItems.map((item, index) => (
-            <NavbarItem key={index} item={item} />
-          ))}
-        </Box>
-        <Box sx={{display: {md: 'none'}}}>
-          <IconButton
-            onClick={() => setDrawerOpen(!drawerOpen)}
-            aria-label="open drawer"
-            sx={{ mr: 2, color: styles.color }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Box>
-      </Toolbar>
-    </AppBar>
-    <Drawer
-      container={container}
-      variant="temporary"
-      open={drawerOpen}
-      onClose={() => setDrawerOpen(false)}
-      ModalProps={{ keepMounted: true }}
-      sx={{
-        display: { xs: 'block', md: 'none' },
-        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', backgroundColor: '#000D', backdropFilter: 'blur(4px)' },
+      <AppBar sx={{ transition: '.4s', ...styles }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', m: 1 }}>
+          <HeadingText variant='h4'>ah!</HeadingText>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 5 }}>
+            {navItems.map((item, index) => (
+              <NavbarItem key={index} item={item} />
+            ))}
+          </Box>
+          <Box sx={{ display: { md: 'none' } }}>
+            <IconButton
+              onClick={() => setDrawerOpen(!drawerOpen)}
+              aria-label="open drawer"
+              sx={{ mr: 2, color: styles.color }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        container={container}
+        variant="temporary"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', backgroundColor: '#000D', backdropFilter: 'blur(4px)' },
 
-      }}
-    >
-      {drawer}
-    </Drawer>
-  </>
+        }}
+      >
+        {drawer}
+      </Drawer>
+    </>
   )
 };
