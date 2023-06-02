@@ -26,6 +26,8 @@ export default function() {
   return (
     <div className='h-screen bg-black text-pink-300 font-serif'>
       <CustomBackground>
+      <p>this site is a work in progress.</p>
+      <p>see <a className='text-white' href='https://allie-howe.github.io/old-portfolio/'>here</a> for my old site.</p>
       <div className='flex items-center justify-center flex-1'>
         {Object.entries(screensComponentMap).map(([screenName, component]) => (
           <PageWrapper key={screenName} display={screen === screenName as Screen}>
