@@ -5,11 +5,20 @@ import { SplashScreen } from './SplashScreen';
 import { LinksBar } from './LinksBar';
 import { PageWrapper } from './PageWrapper';
 
+export const defaultTransition = 'transition-all duration-500';
+
 export enum Screen {
-  Splash,
-  About,
-  Projects,
-  Contact,
+  Splash = 'Splash',
+  About = 'About',
+  Projects = 'Projects',
+  Contact = 'Contact',
+}
+
+const screensComponentMap = {
+  [Screen.Splash]: <SplashScreen />,
+  [Screen.About]: <p>About</p>,
+  [Screen.Projects]: <p>Projects</p>,
+  [Screen.Contact]: <p>Contact</p>,
 }
 
 export default function() {
@@ -18,10 +27,11 @@ export default function() {
     <div className='h-screen bg-black text-pink-300 font-serif'>
       <CustomBackground>
       <div className='flex items-center justify-center flex-1'>
-        <SplashScreen show={screen === Screen.Splash} />
-        <PageWrapper display={screen === Screen.About}><p>About</p></PageWrapper>
-        <PageWrapper display={screen === Screen.Projects}><p>Projects</p></PageWrapper>
-        <PageWrapper display={screen === Screen.Contact}><p>Contact</p></PageWrapper>
+        {Object.entries(screensComponentMap).map(([screenName, component]) => (
+          <PageWrapper key={screenName} display={screen === screenName as Screen}>
+            {component}
+          </PageWrapper>
+        ))}
       </div>
         <LinksBar screen={screen} setScreen={setScreen} />
       </CustomBackground>
