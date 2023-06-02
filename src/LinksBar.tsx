@@ -20,7 +20,7 @@ export const LinksBar = ({screen, setScreen}: LinksBarProps) => {
       {Object.entries(screensMap).map(([name, thisScreen]) => (
         <p
           key={name}
-          onClick={() => setScreen(thisScreen)}
+          onClick={() => setScreen(screen !== thisScreen ? thisScreen : Screen.Splash)}
           className='transition-all px-2 pt-0.5 pb-5 duration-500'
           style={{
             backgroundColor: screen === thisScreen ? pinks[0] : undefined,
