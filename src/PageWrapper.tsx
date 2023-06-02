@@ -1,4 +1,5 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
+import { defaultTransition } from './App';
 
 interface PageWrapperProps {
   display: boolean
@@ -14,7 +15,7 @@ export const PageWrapper = ({ children, display }: PropsWithChildren<PageWrapper
   }, [display]);
 
   return (
-    <div style={{ opacity: show ? 1 : 0 }} className='absolute transition-all duration-500'>
+    <div style={{ opacity: show ? 1 : 0 }} className={`${defaultTransition} absolute`}>
       {children}
     </div>
   )

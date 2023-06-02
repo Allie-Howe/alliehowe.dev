@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { Screen } from './App'
+import { Screen, defaultTransition } from './App'
 import { pinks } from './ShuffleButton'
 
 interface LinksBarProps {
@@ -21,7 +21,7 @@ export const LinksBar = ({screen, setScreen}: LinksBarProps) => {
         <p
           key={name}
           onClick={() => setScreen(screen !== thisScreen ? thisScreen : Screen.Splash)}
-          className='transition-all px-2 pt-0.5 pb-5 duration-500'
+          className={`${defaultTransition} px-2 pt-0.5 pb-5`}
           style={{
             backgroundColor: screen === thisScreen ? pinks[0] : undefined,
             color: screen === thisScreen ? 'black' : undefined
