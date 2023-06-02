@@ -1,0 +1,35 @@
+import { Dispatch, SetStateAction } from 'react'
+import { Screen } from './App'
+import { pinks } from './ShuffleButton'
+
+interface LinksBarProps {
+  screen: Screen
+  setScreen: Dispatch<SetStateAction<Screen>>
+}
+
+export const LinksBar = ({screen, setScreen}: LinksBarProps) => {
+  const screensMap = {
+    about: Screen.About,
+    projects: Screen.Projects,
+    contact: Screen.Contact
+  }
+
+  return (
+    <div className='flex justify-around w-full text-xl'>
+      {/* TODO: Sweeping pink boxes when tab is selected */}
+      {Object.entries(screensMap).map(([name, thisScreen]) => (
+        <p
+          key={name}
+          onClick={() => setScreen(thisScreen)}
+          className='transition-all px-2 pt-0.5 pb-5 duration-500'
+          style={{
+            backgroundColor: screen === thisScreen ? pinks[0] : undefined,
+            color: screen === thisScreen ? 'black' : undefined
+          }}
+        >
+          {name}
+        </p>
+      ))}
+    </div>
+  )
+}

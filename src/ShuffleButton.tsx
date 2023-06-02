@@ -2,6 +2,12 @@ import ShuffleVariantIcon from 'mdi-react/ShuffleVariantIcon';
 import { useCallback, useState } from 'react';
 import { getCurrentBreakpoints } from './breakpointUtils';
 
+export const pinks = [
+  'rgb(249 168 212)',
+  'rgb(219 39 119)',
+  'rgb(255 0 102)',
+];
+
 export const ShuffleButton = () => {
   const [isRndDown, setIsRndDown] = useState(false);
   const toggleRndDown = useCallback(() => setIsRndDown(p => !p), []);
