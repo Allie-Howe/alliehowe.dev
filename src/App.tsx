@@ -24,7 +24,7 @@ const screensComponentMap = {
 export default function() {
   const [screen, setScreen] = useState<Screen>(Screen.Splash);
   return (
-    <div className='h-screen bg-black text-pink-300 font-serif'>
+    <div style={{height: '100dvh'}} className='bg-black text-pink-300 font-serif'>
       <CustomBackground>
       <p>this site is a work in progress.</p>
       <p>see <a className='text-white' href='https://allie-howe.github.io/old-portfolio/'>here</a> for my old site.</p>
