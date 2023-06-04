@@ -4,6 +4,9 @@ import { ShuffleButton } from './components/ShuffleButton';
 import { SplashScreen } from './components/SplashScreen';
 import { LinksBar } from './components/LinksBar';
 import { PageWrapper } from './components/PageWrapper';
+import { About } from './components/pages/About';
+import { Projects } from './components/pages/Projects';
+import { Contact } from './components/pages/Contact';
 
 export const defaultTransition = 'transition-all duration-500';
 
@@ -16,9 +19,9 @@ export enum Screen {
 
 const screensComponentMap = {
   [Screen.Splash]: <SplashScreen />,
-  [Screen.About]: <p>About</p>,
-  [Screen.Projects]: <p>Projects</p>,
-  [Screen.Contact]: <p>Contact</p>,
+  [Screen.About]: <About />,
+  [Screen.Projects]: <Projects />,
+  [Screen.Contact]: <Contact />,
 }
 
 export default function() {
