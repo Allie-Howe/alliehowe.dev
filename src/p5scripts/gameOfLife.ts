@@ -1,5 +1,5 @@
 import p5 from 'p5';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const TILE_SIZE = 10;
 
@@ -9,12 +9,14 @@ const cols = {
 }
 
 export const useGameOfLife = () => {
+  // TODO: Variable framerate
   const gridLength = Math.round(window.innerWidth/TILE_SIZE);
   const gridHeight = Math.round(window.innerHeight/TILE_SIZE);
 
-  const [gameState, setGameState] = useState(new Array(gridHeight).fill(new Array(gridLength).fill(false)).map(col => col.map(() => Math.random() > 0.9)));
+  const [gameState, setGameState] = useState<boolean[][]>(new Array(gridHeight).fill(new Array(gridLength).fill(false)).map(col => col.map(() => Math.random() > 0.9)));
 
   // TODO: Useeffect that expands/cuts grid to fit screen
+  // TODO: Improve performance by only drawing changed tiles
 
   const drawGrid = (p5: p5) => {
     for (let i = 0; i < gridLength; i++) {

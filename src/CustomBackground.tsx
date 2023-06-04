@@ -16,6 +16,7 @@ export const CustomBackground = () => {
     setParent(canvasParentRef);
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
     p5.background(0);
+    p5.frameRate(30);
     p5.noStroke();
     p5.pixelDensity(1);
   };
