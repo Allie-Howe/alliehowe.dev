@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { Screen, defaultTransition } from './App'
+import { Screen, defaultTransition } from '../App'
 import { pinks } from './ShuffleButton'
 
 interface LinksBarProps {

@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { CustomBackground } from './CustomBackground';
-import { ShuffleButton } from './ShuffleButton';
-import { SplashScreen } from './SplashScreen';
-import { LinksBar } from './LinksBar';
-import { PageWrapper } from './PageWrapper';
+import { useState } from 'react';
+import { CustomBackground } from './components/CustomBackground';
+import { ShuffleButton } from './components/ShuffleButton';
+import { SplashScreen } from './components/SplashScreen';
+import { LinksBar } from './components/LinksBar';
+import { PageWrapper } from './components/PageWrapper';
 
 export const defaultTransition = 'transition-all duration-500';
 

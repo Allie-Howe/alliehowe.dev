@@ -1,6 +1,6 @@
 import p5 from 'p5';
 import { useState } from 'react';
-import { useP5DupeRemover } from '../p5DupeRemover';
+import { useP5DupeRemover } from './p5DupeRemover';
 import Sketch from 'react-p5';
 
 const TILE_SIZE = 10;

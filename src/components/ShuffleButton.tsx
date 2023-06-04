@@ -1,6 +1,6 @@
 import ShuffleVariantIcon from 'mdi-react/ShuffleVariantIcon';
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
-import { defaultTransition } from './App';
+import { defaultTransition } from '../App';
 import { backgroundMap } from './CustomBackground';
 
 export const pinks = [

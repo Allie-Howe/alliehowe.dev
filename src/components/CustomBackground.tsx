@@ -1,4 +1,4 @@
-import { GameOfLife } from './p5scripts/GameOfLife';
+import { GameOfLife } from '../backgrounds/GameOfLife';
 
 export const backgroundMap = [
   GameOfLife,
