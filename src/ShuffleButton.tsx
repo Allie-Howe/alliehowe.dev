@@ -20,7 +20,7 @@ export const ShuffleButton = () => {
       <div className={`${defaultTransition} h-20 w-20 bg-pink-300 lg:hover:bg-pink-400 rounded-full absolute right-5 top-5 flex items-center justify-center text-black transition-all` }>
         <ShuffleVariantIcon
           size='3em'
-          className='transition-all select-none'
+          className='transition-all'
           onMouseDown={toggleRndDown}
           onMouseUp={toggleRndDown}
           onTouchStart={toggleRndDown}

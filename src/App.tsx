@@ -24,7 +24,7 @@ const screensComponentMap = {
 export default function() {
   const [screen, setScreen] = useState<Screen>(Screen.Splash);
   return (
-    <div style={{height: '100dvh'}} className='bg-black text-pink-300 font-serif h-full flex items-center justify-center flex-col'>
+    <div style={{height: '100dvh'}} className='select-none bg-black text-pink-300 font-serif h-full flex items-center justify-center flex-col'>
       <CustomBackground />
       <div style={{backgroundColor: '#0005'}} className='absolute w-full h-full flex items-center justify-center flex-col'>
         <div className='top-0 text-center'>
