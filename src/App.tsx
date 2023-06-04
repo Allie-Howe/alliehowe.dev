@@ -26,9 +26,9 @@ export default function() {
   const [screen, setScreen] = useState<Screen>(Screen.Splash);
 
   return (
-    <div style={{height: '100dvh'}} className='select-none bg-black text-pink-300 font-serif h-full flex items-center justify-center flex-col'>
+    <div className='select-none bg-black text-pink-300 font-serif h-[100dvh] flex items-center justify-center flex-col'>
       <CustomBackground backgroundIndex={backgroundIndex} />
-      <div style={{backgroundColor: '#0005'}} className='absolute w-full h-full flex items-center justify-center flex-col'>
+      <div className='absolute bg-opacity-30 bg-black w-full h-full flex items-center justify-center flex-col'>
         <div className='top-0 text-center'>
           <p>this site is a work in progress.</p>
           <p>see <a className='text-white' href='https://allie-howe.github.io/old-portfolio/'>here</a> for my old site.</p>

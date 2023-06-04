@@ -17,6 +17,7 @@ export const LinksBar = ({screen, setScreen}: LinksBarProps) => {
   return (
     <div className='flex justify-around w-full text-xl'>
       {/* TODO: Sweeping pink boxes when tab is selected */}
+      {/* TODO: Re-evaluate colors - maybe have these white, page headers pink and page content white? */}
       {Object.entries(screensMap).map(([name, thisScreen]) => (
         <p
           key={name}

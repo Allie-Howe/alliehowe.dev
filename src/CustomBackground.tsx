@@ -13,7 +13,7 @@ export const CustomBackground = ({ backgroundIndex }: CustomBackgroundProps) => 
   const CurrentComponent = backgroundMap[backgroundIndex];
 
   return (
-    <div style={{filter: 'blur(3px)'}} className="custom-background absolute">
+    <div className="custom-background absolute blur-sm">
       <CurrentComponent />
     </div>
   );
