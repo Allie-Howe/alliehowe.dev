@@ -1,7 +1,8 @@
 import ShuffleVariantIcon from 'mdi-react/ShuffleVariantIcon';
-import { useCallback, useState } from 'react';
+import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 import { getCurrentBreakpoints } from './breakpointUtils';
 import { defaultTransition } from './App';
+import { backgroundMap } from './CustomBackground';
 
 export const pinks = [
   'rgb(249 168 212)',
@@ -9,7 +10,10 @@ export const pinks = [
   'rgb(255 0 102)',
 ];
 
-export const ShuffleButton = () => {
+interface ShuffleButtonProps {
+  setBackgroundIndex: Dispatch<SetStateAction<number>>
+}
+export const ShuffleButton = ({ setBackgroundIndex }: ShuffleButtonProps) => {
   const [isRndDown, setIsRndDown] = useState(false);
   const toggleRndDown = useCallback(() => setIsRndDown(p => !p), []);
   const { lg } = getCurrentBreakpoints();
@@ -21,6 +25,7 @@ export const ShuffleButton = () => {
         <ShuffleVariantIcon
           size='3em'
           className='transition-all'
+          onClick={() => setBackgroundIndex(i => (i + 1) % backgroundMap.length)}
           onMouseDown={toggleRndDown}
           onMouseUp={toggleRndDown}
           onTouchStart={toggleRndDown}

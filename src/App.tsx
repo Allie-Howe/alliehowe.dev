@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CustomBackground } from './CustomBackground';
 import { ShuffleButton } from './ShuffleButton';
 import { SplashScreen } from './SplashScreen';
@@ -22,10 +22,12 @@ const screensComponentMap = {
 }
 
 export default function() {
+  const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [screen, setScreen] = useState<Screen>(Screen.Splash);
+
   return (
     <div style={{height: '100dvh'}} className='select-none bg-black text-pink-300 font-serif h-full flex items-center justify-center flex-col'>
-      <CustomBackground />
+      <CustomBackground backgroundIndex={backgroundIndex} />
       <div style={{backgroundColor: '#0005'}} className='absolute w-full h-full flex items-center justify-center flex-col'>
         <div className='top-0 text-center'>
           <p>this site is a work in progress.</p>
@@ -39,7 +41,7 @@ export default function() {
           ))}
         </div>
         <LinksBar screen={screen} setScreen={setScreen} />
-        <ShuffleButton />
+        <ShuffleButton setBackgroundIndex={setBackgroundIndex} />
       </div>
     </div>
   );
