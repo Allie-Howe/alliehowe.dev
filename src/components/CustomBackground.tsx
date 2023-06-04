@@ -1,7 +1,8 @@
 import { GameOfLife } from '../backgrounds/GameOfLife';
-import { PlainPink } from '../backgrounds/PlainPink';
+import { PlainBlack, PlainPink } from '../backgrounds/Plains';
 
 export const backgroundMap = [
+  PlainBlack,
   GameOfLife,
   PlainPink,
   // PastelRainbow, // If we're gonna use this, we need the text to change dynamically
