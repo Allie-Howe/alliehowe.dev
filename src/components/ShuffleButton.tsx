@@ -17,12 +17,12 @@ export const ShuffleButton = ({ setBackgroundIndex }: ShuffleButtonProps) => {
 
   // TODO: Custom glowing CSS shadow
   return (
-      <button
+      <div
         style={{
           backgroundColor: isDown ? pinks[1] : pinks[0],
           translate: isDown ? '0 1px' : '0 0'
         }}
-        className={`${defaultTransition} h-20 w-20 bg-pink-300 rounded-full absolute right-5 top-5 flex items-center justify-center text-black transition-all duration-75` }
+        className={`${defaultTransition} h-20 w-20 bg-pink-300 rounded-full absolute right-5 top-5 flex items-center justify-center text-black transition-all duration-75 cursor-pointer` }
         onClick={() => setBackgroundIndex(i => (i + 1) % backgroundMap.length)}
         onMouseDown={toggleDown}
         onMouseUp={toggleDown}
@@ -30,6 +30,6 @@ export const ShuffleButton = ({ setBackgroundIndex }: ShuffleButtonProps) => {
         onTouchEnd={toggleDown}
       >
         <ShuffleVariantIcon size='3em'/>
-      </button>
+      </div>
   )
 };
