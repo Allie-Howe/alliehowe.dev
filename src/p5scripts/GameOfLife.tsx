@@ -1,5 +1,7 @@
 import p5 from 'p5';
 import { useState } from 'react';
+import { useP5DupeRemover } from '../p5DupeRemover';
+import Sketch from 'react-p5';
 
 const TILE_SIZE = 10;
 
@@ -8,7 +10,9 @@ const cols = {
   light: 150,
 }
 
-export const useGameOfLife = () => {
+export const GameOfLife = () => {
+  const setParent = useP5DupeRemover();
+
   // TODO: Variable framerate
   const gridLength = Math.round(window.innerWidth/TILE_SIZE);
   const gridHeight = Math.round(window.innerHeight/TILE_SIZE);
@@ -47,10 +51,24 @@ export const useGameOfLife = () => {
     })));
   };
 
+  const setup = (p5: p5, canvasParentRef: Element) => {
+    setParent(canvasParentRef);
+    p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
+    p5.background(0);
+    p5.frameRate(30);
+    p5.noStroke();
+    p5.pixelDensity(1);
+  };
+
+  const windowResized = (p5: p5) => {
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+  };
+
   const draw = (p5: p5) => {
     p5.background(cols.dark);
     drawGrid(p5);
     updateGameState();
   }
-  return draw
-}
+
+  return <Sketch setup={setup} draw={draw} windowResized={windowResized}/>;
+};
