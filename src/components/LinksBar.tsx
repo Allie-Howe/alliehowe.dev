@@ -22,7 +22,7 @@ export const LinksBar = ({screen, setScreen}: LinksBarProps) => {
         <p
           key={name}
           onClick={() => setScreen(screen !== thisScreen ? thisScreen : Screen.Splash)}
-          className={`${defaultTransition} px-2 pt-0.5 pb-5`}
+          className={`${defaultTransition} px-2 pt-0.5 pb-5 cursor-pointer`}
           style={{
             backgroundColor: screen === thisScreen ? pinks[0] : undefined,
             color: screen === thisScreen ? 'black' : undefined
