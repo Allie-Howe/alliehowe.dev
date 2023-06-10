@@ -1,11 +1,11 @@
+import { AnchorHTMLAttributes } from 'react';
 import { ContentWrapper } from './ContentWrapper';
 
-interface LinkProps {
-  href: string
+interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
 }
-export const NewTabLink = ({ href, children }: LinkProps) => (
-  <a className='text-pink-300' href={href} target='_blank' rel='noreferrer'>
+export const NewTabLink = ({ href, className, children, ...rest }: LinkProps) => (
+  <a className={`${className} text-pink-300`} href={href} target='_blank' rel='noreferrer' {...rest}>
     {children}
   </a>
 );
