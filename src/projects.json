@@ -25,7 +25,7 @@
   {
     "name": "Old site",
     "description": "Archive of original site, made in HTML, SCSS and JavaScript from 2020-2022. I've since migrated to React & MUI but painstakingly copied almost all the styling over!",
-    "imgUrl": "site.png",
+    "imgUrl": "site2.png",
     "buttons": [
       {
         "title": "check it out",
