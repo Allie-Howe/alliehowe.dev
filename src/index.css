@@ -30,3 +30,7 @@
     background-position: 100% 0%;
   }
 }
+
+.growOnHoverWrap:hover .growOnHoverItem {
+  transform: scale(1.05);
+}

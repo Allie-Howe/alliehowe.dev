@@ -4,7 +4,7 @@ interface LinkProps {
   href: string
   children: React.ReactNode
 }
-const NewTabLink = ({ href, children }: LinkProps) => (
+export const NewTabLink = ({ href, children }: LinkProps) => (
   <a className='text-pink-300' href={href} target='_blank' rel='noreferrer'>
     {children}
   </a>
