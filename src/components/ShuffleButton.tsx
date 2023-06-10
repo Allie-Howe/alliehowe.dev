@@ -14,16 +14,19 @@ interface ShuffleButtonProps {
 export const ShuffleButton = ({ setBackgroundIndex }: ShuffleButtonProps) => {
   const [isDown, setIsDown] = useState(false);
   const toggleDown = useCallback(() => setIsDown(p => !p), []);
+  const [glowing, setGlowing] = useState('glowing');
 
-  // TODO: Custom glowing CSS shadow
   return (
       <div
         style={{
           backgroundColor: isDown ? pinks[1] : pinks[0],
           translate: isDown ? '0 1px' : '0 0'
         }}
-        className={`${defaultTransition} h-20 w-20 bg-pink-300 rounded-full absolute right-5 top-5 flex items-center justify-center text-black transition-all duration-75 cursor-pointer` }
-        onClick={() => setBackgroundIndex(i => (i + 1) % backgroundMap.length)}
+        className={`${defaultTransition} ${glowing} h-20 w-20 bg-pink-300 rounded-full absolute right-5 top-5 flex items-center justify-center text-black transition-all duration-75 cursor-pointer` }
+        onClick={() => {
+          setBackgroundIndex(i => (i + 1) % backgroundMap.length)
+          setGlowing('');
+        }}
         onMouseDown={toggleDown}
         onMouseUp={toggleDown}
         onTouchStart={toggleDown}
