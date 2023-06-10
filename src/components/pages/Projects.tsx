@@ -11,7 +11,7 @@ export const Projects = () => {
       <div className='grid gap-10 grid-cols-1 flex-col'>
         {projects.map((project, index) => {
           return (<Fragment key={index}>
-          {!!index && <hr className='border-gray-600' />}
+          {!!index && <hr className='border-white opacity-40' />}
           <ProjectTwo project={project} />
           </Fragment>)
         })}
