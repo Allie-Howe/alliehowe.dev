@@ -38,7 +38,7 @@ export const Contact = () => {
     <ContentWrapper text='contact'>
       <div className='font-sans flex flex-col gap-5'>
         {infoArr.map(({logo, url, username}) => (
-          <NewTabLink href={`${url}${username}`} className='flex justify-center gap-2 items-center text-white'>
+          <NewTabLink href={`${url}${username}`} className='flex justify-center gap-2 items-center text-white hover:opacity-80 duration-200'>
             <img src={logo} className='invert w-10' />
             <p>{username}</p>
           </NewTabLink>
