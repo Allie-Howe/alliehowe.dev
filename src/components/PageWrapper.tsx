@@ -4,18 +4,24 @@ import { defaultTransition } from '../App';
 interface PageWrapperProps {
   display: boolean
 }
+
+const TRANSITION_TIME = 300;
+
 export const PageWrapper = ({ children, display }: PropsWithChildren<PageWrapperProps>) => {
+  const [opacity, setOpacity] = useState(1);
   const [show, setShow] = useState(false);
   useEffect(() => {
     if (!display) {
-      setShow(false);
+      setOpacity(0)
+      setTimeout(() => setShow(false), TRANSITION_TIME);
       return;
     }
-    setTimeout(() => setShow(true), 300);
+    setShow(true)
+    setTimeout(() => setOpacity(1), TRANSITION_TIME);
   }, [display]);
 
   return (
-    <div style={{ opacity: show ? 1 : 0 }} className={`${defaultTransition} absolute`}>
+    <div style={{ display: show ? 'unset' : 'none', opacity }} className={`${defaultTransition} absolute`}>
       {children}
     </div>
   )
