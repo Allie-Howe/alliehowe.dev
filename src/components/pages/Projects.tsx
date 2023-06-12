@@ -68,7 +68,7 @@ const ProjectTwo = ({ project }: {project: Project}) => {
       </div>
       {project.buttons.map((button, index) => {
         return (
-          <a key={index} className='text-black rounded-md text-lg bg-pink-200 hover:bg-pink-300 duration-500 p-1 block text-center' href={button.url} target='_blank' rel='noreferrer'>
+          <a key={index} className='text-black rounded-md text-lg bg-pink-300 hover:bg-pink-400 duration-500 p-1 block text-center' href={button.url} target='_blank' rel='noreferrer'>
             {button.title}
           </a>
         )

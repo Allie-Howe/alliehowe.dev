@@ -24,7 +24,7 @@
   },
   {
     "name": "Old site",
-    "description": "Archive of original site, made in HTML, SCSS and JavaScript from 2020-2022. I've since migrated to React & MUI but painstakingly copied almost all the styling over!",
+    "description": "Archive of original site, made in HTML, SCSS and JavaScript from 2020-2022. I've since migrated to a more mobile first approach using React/Tailwind but this was the first full-fledged site I made and I'm still proud of it!",
     "imgUrl": "site2.png",
     "buttons": [
       {
