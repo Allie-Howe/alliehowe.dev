@@ -50,6 +50,8 @@ const ProjectOne = ({ project }: {project: Project}) => {
   </div>)
 };
 
+// TODO: Downscale images to improve performance
+// TODO: Hard-code width of images to reduce layout shift
 const ProjectTwo = ({ project }: {project: Project}) => {
   const sharedStyles = 'md:w-[400px] rounded-xl growOnHoverItem duration-200'
   return (<div className= 'flex flex-col md:flex-row gap-x-5 gap-y-2 growOnHoverWrap'>
@@ -59,7 +61,7 @@ const ProjectTwo = ({ project }: {project: Project}) => {
             <source src={`images/previews/${project.imgUrl}`} type='video/webm' />
         </video>
       )
-      : <img className={`${sharedStyles}`} src={`images/previews/${project.imgUrl}`} />
+      : <img loading="lazy" className={`${sharedStyles}`} src={`images/previews/${project.imgUrl}`} />
     }
     <div className='flex flex-col gap-5 justify-between'>
       <div>
