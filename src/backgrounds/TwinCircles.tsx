@@ -2,6 +2,7 @@ import p5 from 'p5';
 import { useEffect, useState } from 'react';
 import { useP5DupeRemover } from '../utils/p5DupeRemover';
 import Sketch from 'react-p5';
+import { getCurrentBreakpoints } from '../utils/breakpointUtils';
 
 interface Position {
   x: number;
@@ -9,6 +10,7 @@ interface Position {
 }
 let positions: Position[][] = [];
 const MAX_POS = 50;
+const BASE_SPEED = 0.2e-3;
 
 const cols = {
   dark: 30,
@@ -17,6 +19,7 @@ const cols = {
 
 export const TwinCircles = () => {
   const setParent = useP5DupeRemover();
+  const { md } = getCurrentBreakpoints();
 
   useEffect(() => {
     positions = [];
@@ -42,12 +45,13 @@ export const TwinCircles = () => {
     const normalisers = {
       width: p5.windowWidth/3,
       height: p5.windowHeight/3,
-      speed: 0.4e-3,
+      speed: md ? BASE_SPEED : BASE_SPEED * 2,
     }
 
+    const theta = p5.millis()*normalisers.speed;
     positions.push([
-      {x: p5.sin(2*p5.millis()*normalisers.speed)*normalisers.width, y: p5.cos(p5.millis()*normalisers.speed)*normalisers.height},
-      {x: -p5.sin(2*p5.millis()*normalisers.speed)*normalisers.width, y: -p5.cos(p5.millis()*normalisers.speed)*normalisers.height},
+      {x: p5.sin(2*theta)*normalisers.width, y: p5.cos(theta)*normalisers.height},
+      {x: -p5.sin(2*theta)*normalisers.width, y: -p5.cos(theta)*normalisers.height},
     ]);
 
     if (positions.length > MAX_POS) {
