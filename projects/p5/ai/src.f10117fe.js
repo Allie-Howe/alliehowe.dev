@@ -26418,6 +26418,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Circle = exports.mesh = exports.circles = void 0;
+var _1 = require(".");
 exports.circles = [];
 var numCircles = 30;
 var circleSize = 30;
@@ -26428,13 +26429,15 @@ var mesh = function mesh(p5) {
     p5.createCanvas(p5.windowWidth, p5.windowHeight);
     p5.pixelDensity(1);
     p5.frameRate(30);
-    bgColor = p5.color(30);
-    lineColor = p5.color(255, 255, 255, 100);
-    circleColor = p5.color(255, 100);
+    var isMobile = window.innerWidth < 1000;
+    if (isMobile) circleSize = 60;
+    bgColor = p5.color(_1.cols.bg);
+    lineColor = p5.color(_1.cols.fg);
+    circleColor = p5.color(_1.cols.fg);
     for (var i = 0; i < numCircles; i++) {
       var angle = p5.map(i, 0, numCircles, 0, p5.TWO_PI);
-      var x = p5.width / 2 + p5.cos(angle) * lineMaxLength / 2;
-      var y = p5.height / 2 + p5.sin(angle) * lineMaxLength / 2;
+      var x = p5.width / 2 + p5.cos(angle) * lineMaxLength / (isMobile ? 1 : 2);
+      var y = p5.height / 2 + p5.sin(angle) * lineMaxLength / (isMobile ? 1 : 2);
       var vx = p5.random(-2, 2);
       var vy = p5.random(-2, 2);
       var circle = new Circle(p5, x, y, vx, vy);
@@ -26516,7 +26519,7 @@ var Circle = /** @class */function () {
     var d = p5.dist(this.x, this.y, other.x, other.y);
     if (d < lineMaxLength) {
       var alpha = p5.map(d, 0, lineMaxLength, 255, 0);
-      p5.stroke(p5.lerpColor(lineColor, this.color, 0.5));
+      p5.stroke(p5.lerpColor(lineColor, this.color, alpha));
       p5.strokeWeight(1);
       p5.line(this.x, this.y, other.x, other.y);
     }
@@ -26524,13 +26527,19 @@ var Circle = /** @class */function () {
   return Circle;
 }();
 exports.Circle = Circle;
-},{}],"src/squircle.ts":[function(require,module,exports) {
+},{".":"src/index.ts"}],"src/squircle.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.squircle = void 0;
+var _1 = require(".");
+var numSquares = 20;
+var minSize = 50;
+var maxSize = 250;
+var angleMultiplier = 0.5;
+var sizeMultiplier = 0.9;
 var squircle = function squircle(p5) {
   p5.setup = function () {
     p5.createCanvas(p5.windowWidth, p5.windowHeight);
@@ -26543,18 +26552,19 @@ var squircle = function squircle(p5) {
     p5.resizeCanvas(window.innerWidth, window.innerHeight);
   };
   p5.draw = function () {
-    p5.background(0);
+    var count = p5.frameCount - 110;
+    p5.background(_1.cols.bg);
     p5.translate(p5.width / 2, p5.height / 2);
-    p5.rotate(p5.frameCount);
-    for (var i = 0; i < 360; i += 10) {
+    p5.rotate(count);
+    for (var i = 0; i < 360; i += 360 / numSquares) {
       var x = p5.sin(i) * 200;
       var y = p5.cos(i) * 200;
-      var size = p5.map(p5.sin(p5.frameCount), -1, 1, 50, 250);
-      var angle = p5.frameCount * 2;
+      var size = p5.map(p5.sin(count), -1, 1, minSize, maxSize);
+      var angle = count * 2;
       p5.push();
       p5.translate(x, y);
       p5.rotate(angle);
-      p5.stroke(255);
+      p5.stroke(_1.cols.fg);
       p5.rect(0, 0, size, size);
       drawInnerSquares(size, angle);
       p5.pop();
@@ -26565,12 +26575,15 @@ var squircle = function squircle(p5) {
       }
       var iter = inIter + 1;
       if (size > 60 && iter < 5) {
-        var newSize = size * 0.9;
-        var newAngle = angle * 1.5;
+        var newSize = size * sizeMultiplier;
+        var newAngle = angle * angleMultiplier;
         var colorVal = p5.map(size, 50, 250, 0, 255);
+        var _a = _1.cols.fg,
+          _ = _a[0],
+          opacity = _a[1];
         p5.push();
         p5.rotate(newAngle);
-        p5.stroke(p5.color(colorVal, 255 - colorVal, 255));
+        p5.stroke(p5.color(colorVal, 255 - colorVal, 255, opacity));
         p5.rect(0, 0, newSize, newSize);
         drawInnerSquares(newSize, newAngle, iter);
         p5.pop();
@@ -26579,31 +26592,31 @@ var squircle = function squircle(p5) {
   };
 };
 exports.squircle = squircle;
-},{}],"src/moire.ts":[function(require,module,exports) {
+},{".":"src/index.ts"}],"src/moire.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.moire = void 0;
+var _1 = require(".");
 var numShapes = 50;
 var minRadius = 20;
 var maxRadius = 500;
 var rotationSpeed = 0.005;
 var lineWidth = 1;
-var shapeColor = [255, 255, 255];
 var moire = function moire(p5) {
   p5.setup = function () {
     p5.createCanvas(p5.windowWidth, p5.windowHeight);
     p5.pixelDensity(1);
     p5.angleMode(p5.RADIANS);
-    p5.stroke(shapeColor);
+    p5.stroke(_1.cols.fg);
     p5.strokeWeight(lineWidth);
     p5.noFill();
     maxRadius = p5.min(p5.windowWidth, p5.windowHeight) / 2;
   };
   p5.draw = function () {
-    p5.background(0);
+    p5.background(_1.cols.bg);
     p5.translate(p5.width / 2, p5.height / 2);
     for (var i = 0; i < numShapes; i++) {
       var radius = p5.map(i, 0, numShapes, minRadius, maxRadius);
@@ -26631,47 +26644,7 @@ var moire = function moire(p5) {
   };
 };
 exports.moire = moire;
-},{}],"src/wave.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.wave = void 0;
-var angle = 0;
-var w = 50;
-var ma;
-var maxD;
-var wave = function wave(p5) {
-  p5.setup = function () {
-    p5.createCanvas(p5.windowWidth, p5.windowHeight, p5.WEBGL);
-    p5.pixelDensity(1);
-    ma = p5.atan(1 / p5.sqrt(2));
-    maxD = p5.dist(0, 0, 200, 200);
-  };
-  p5.draw = function () {
-    p5.background(255);
-    p5.ortho(-400, 400, 400, -400, 0, 1000);
-    p5.rotateX(-p5.QUARTER_PI);
-    p5.rotateY(ma);
-    for (var z = 0; z < p5.height; z += w) {
-      for (var x = 0; x < p5.width; x += w) {
-        p5.push();
-        var d = p5.dist(x, z, p5.width / 2, p5.height / 2);
-        var offset = p5.map(d, 0, maxD, -p5.PI, p5.PI);
-        var a = angle + offset;
-        var h = p5.floor(p5.map(p5.sin(a), -1, 1, 100, 300));
-        p5.translate(x - p5.width / 2, 0, z - p5.height / 2);
-        p5.normalMaterial();
-        p5.box(w, h, w);
-        p5.pop();
-      }
-    }
-    angle -= 0.1;
-  };
-};
-exports.wave = wave;
-},{}],"src/index.ts":[function(require,module,exports) {
+},{".":"src/index.ts"}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -26682,14 +26655,18 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.cols = void 0;
 var p5_1 = __importDefault(require("p5"));
 var mesh_1 = require("./mesh");
 var squircle_1 = require("./squircle");
 var moire_1 = require("./moire");
-var wave_1 = require("./wave");
 var sketch;
 var animIndex = 0;
-var drawFnArray = [mesh_1.mesh, squircle_1.squircle, wave_1.wave, moire_1.moire];
+var drawFnArray = [mesh_1.mesh, squircle_1.squircle, moire_1.moire];
+exports.cols = {
+  bg: 30,
+  fg: [255, 150]
+};
 window.onload = function () {
   sketch = new p5_1.default(drawFnArray[animIndex % drawFnArray.length]);
   var isMobile = window.innerWidth < 1000;
@@ -26705,7 +26682,7 @@ window.addEventListener('click', function () {
   sketch = new p5_1.default(drawFnArray[animIndex % drawFnArray.length]);
   (_a = document.querySelector('#info')) === null || _a === void 0 ? void 0 : _a.remove();
 });
-},{"p5":"node_modules/p5/lib/p5.min.js","./mesh":"src/mesh.ts","./squircle":"src/squircle.ts","./moire":"src/moire.ts","./wave":"src/wave.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"p5":"node_modules/p5/lib/p5.min.js","./mesh":"src/mesh.ts","./squircle":"src/squircle.ts","./moire":"src/moire.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -26730,7 +26707,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65316" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62491" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
