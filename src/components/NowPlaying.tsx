@@ -43,7 +43,6 @@ export const NowPlaying = () => {
         </div>
       </div>
       <div className='flex items-center justify-center'>
-
         {track.nowPlaying
           ? (<video autoPlay loop muted width='50px'>
             <source src={playing} type='video/mp4' />
