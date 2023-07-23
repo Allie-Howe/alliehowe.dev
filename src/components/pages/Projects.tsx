@@ -26,7 +26,7 @@ const ProjectOne = ({ project }: {project: Project}) => {
       <div className= 'growOnHoverItem duration-200'>
         {project.imgUrl.includes('webm')
           ? (
-            <video autoPlay loop muted>
+            <video disableRemotePlayback autoPlay loop muted>
                 <source src={`images/previews/${project.imgUrl}`} type='video/webm' />
             </video>
           )
@@ -57,7 +57,7 @@ const ProjectTwo = ({ project }: {project: Project}) => {
   return (<div className= 'flex flex-col md:flex-row gap-x-5 gap-y-2 growOnHoverWrap'>
     {project.imgUrl.includes('webm')
       ? (
-        <video className={`${sharedStyles}`} autoPlay loop muted>
+        <video disableRemotePlayback className={`${sharedStyles}`} autoPlay loop muted>
             <source src={`images/previews/${project.imgUrl}`} type='video/webm' />
         </video>
       )

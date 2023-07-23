@@ -44,7 +44,7 @@ export const NowPlaying = () => {
       </div>
       <div className='flex items-center justify-center'>
         {track.nowPlaying
-          ? (<video autoPlay loop muted width='50px'>
+          ? (<video disableRemotePlayback autoPlay loop muted width='50px'>
             <source src={playing} type='video/mp4' />
           </video>)
           : <p className='text-white ml-3 mr-2 opacity-50'>{timeAgo(track.date)}</p>
