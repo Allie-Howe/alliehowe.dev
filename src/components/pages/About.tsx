@@ -1,5 +1,6 @@
 import { AnchorHTMLAttributes } from 'react';
 import { ContentWrapper } from './ContentWrapper';
+import { NowPlaying } from '../NowPlaying';
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
@@ -18,6 +19,7 @@ export const About = () => {
         <p>Besides this, I enjoy playing around with various technologies - from creative code using p5.js, to learning new frameworks such as Svelte, to improving my knowledge of React and more.</p>
         <p>You can see all of my open source projects, including this site itself, on my <NewTabLink href='https://github.com/allie-howe'>GitHub</NewTabLink>.</p>
       </div>
+      <NowPlaying />
     </ContentWrapper>
   );
 };
