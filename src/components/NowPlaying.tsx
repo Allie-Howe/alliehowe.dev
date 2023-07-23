@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import playing from '../assets/playing.webm';
 import spotify from '../assets/spotify.svg'
-import { ClipLoader, ScaleLoader } from 'react-spinners';
+import { ScaleLoader } from 'react-spinners';
+import { timeAgo } from './timeAgo';
 
 type Track = {
   name: string
@@ -30,29 +31,27 @@ export const NowPlaying = () => {
     getNowPlaying();
   }, [getNowPlaying]);
 
-  if (loading) return (<ScaleLoader loading={loading} color='white' />)
+  if (loading) return (<ScaleLoader className='mt-5' loading={loading} color='grey' />)
 
-  return (<div className='mt-5'>
-      {track && <>
-      <div className='flex items-center justify-around w-full gap-5'>
-        <div className='flex gap-2'>
+  return track && (
+    <div className='flex mt-5 font-sans items-center justify-between gap-1 max-w-full min-w-full md:px-20'>
+      <div className='flex gap-2'>
         <img src={spotify} alt='Spotify logo' width='50px' />
-          <div>
-            <h2 className='font-sans'>{track.name}</h2>
-            <h3 className='text-white font-sans'>{track.artist}</h3>
-          </div>
-        </div>
-        <div className='flex gap-2 items-center justify-center'>
-          {track.nowPlaying
-            ? (<video autoPlay loop muted width='50px'>
-              <source src={playing} type='video/mp4' />
-            </video>)
-            : <p>{track.date.toLocaleDateString()}</p>
-          }
-          <img src={track.image} alt='Album cover' width='100px' className='rounded-2xl' />
+        <div className='max-w-[35vw]'>
+          <p>{track.name}</p>
+          <p className='text-white'>{track.artist}</p>
         </div>
       </div>
-    </>}
-  </div>);
+      <div className='flex items-center justify-center'>
 
+        {track.nowPlaying
+          ? (<video autoPlay loop muted width='50px'>
+            <source src={playing} type='video/mp4' />
+          </video>)
+          : <p className='text-white ml-3 mr-2 opacity-50'>{timeAgo(track.date)}</p>
+        }
+        <img src={track.image} alt='Album cover' height='90px' width='90px' className='rounded-2xl' />
+      </div>
+    </div>
+  )
 };
