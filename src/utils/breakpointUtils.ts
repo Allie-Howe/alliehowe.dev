@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 export const tailwindBreakpoints = {
   ['sm']: '640px',
   ['md']: '768px',
@@ -16,4 +18,17 @@ export const getCurrentBreakpoints = () => {
     xl: width >= 1280,
     '2xl': width >= 1536
   };
+}
+
+export const useBreakpoints = () => {
+  const [breakpoints, setBreakpoints] = useState(getCurrentBreakpoints());
+
+  useEffect(() => {
+    const handleWindowResize = () => setBreakpoints(getCurrentBreakpoints());
+
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
+  return breakpoints;
 }
