@@ -3,15 +3,19 @@ import { useP5DupeRemover } from './utils/p5DupeRemover';
 import Sketch from 'react-p5';
 import { cols } from './backgrounds/shared';
 
-let SHOULD_ROTATE = false;
+let SHOULD_ROTATE = true;
 
-const ROTATION_SPEED = 2e-4
+const ROTATION_SPEED = Math.PI/(250*2)
+// TODO: Rename
+const NEW_SPEED = 5e-4/2
 const NUM_REPETITIONS = 5
 const LINE_SIZE = 80
 const NUM_LINES = 8
 
 export const Tmp = () => {
   const setParent = useP5DupeRemover();
+  let rotation = 1;
+
 
   const setup = (p5: p5, canvasParentRef: Element) => {
     setParent(canvasParentRef);
@@ -31,7 +35,10 @@ export const Tmp = () => {
     p5.background(cols.dark);
     p5.translate(p5.windowWidth / 2, p5.windowHeight / 2)
     p5.rotate((3*p5.PI)/16)
-    const rotation = SHOULD_ROTATE ? p5.millis() * ROTATION_SPEED : 1
+
+    const timing = (NEW_SPEED*p5.millis())%1;
+
+    if (SHOULD_ROTATE && timing < 0.7) rotation += ROTATION_SPEED;
 
     for (let j = 1; j < NUM_REPETITIONS; j++) {
       const isEven = j % 2;
@@ -56,7 +63,7 @@ export const Tmp = () => {
 
   const keyPressed = (p5: p5, e: KeyboardEvent) => {
     if (e.code !== 'Space') return;
-    SHOULD_ROTATE = SHOULD_ROTATE ? false : true;
+    SHOULD_ROTATE = !SHOULD_ROTATE;
   }
 
   return <Sketch setup={setup} draw={draw} keyPressed={keyPressed} windowResized={windowResized}/>;
