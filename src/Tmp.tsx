@@ -33,7 +33,7 @@ export const Tmp = () => {
     p5.rotate((3*p5.PI)/16)
     const rotation = SHOULD_ROTATE ? p5.millis() * ROTATION_SPEED : 1
 
-    for (let j = 0; j < NUM_REPETITIONS; j++) {
+    for (let j = 1; j < NUM_REPETITIONS; j++) {
       const rotationDirection = j % 2 && SHOULD_ROTATE ? -1 : 1;
       const power = 2 ** j;
 
