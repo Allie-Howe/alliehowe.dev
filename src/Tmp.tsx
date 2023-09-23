@@ -34,18 +34,23 @@ export const Tmp = () => {
     const rotation = SHOULD_ROTATE ? p5.millis() * ROTATION_SPEED : 1
 
     for (let j = 1; j < NUM_REPETITIONS; j++) {
-      const rotationDirection = j % 2 && SHOULD_ROTATE ? -1 : 1;
+      const isEven = j % 2;
+      const rotationDirection = isEven ? -1 : 1;
+      const rotationOffset = (6*p5.PI)/500
       const power = 2 ** j;
 
 
+      p5.push();
+      if (isEven) p5.rotate(rotationOffset)
       for (let i = 0; i < NUM_LINES * power; i++) {
         const thisRotation = rotation + ((i * p5.TWO_PI / power) / NUM_LINES);
         p5.push()
-        p5.rotate(rotationDirection * thisRotation)
+        p5.rotate((rotationDirection * thisRotation) - rotationOffset )
         p5.translate(LINE_SIZE * j, 0)
         p5.line(0, 0, LINE_SIZE, 0)
         p5.pop()
       }
+      p5.pop();
     }
   }
 
