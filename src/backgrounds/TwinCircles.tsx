@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useP5DupeRemover } from '../utils/p5DupeRemover';
 import Sketch from 'react-p5';
 import { getCurrentBreakpoints } from '../utils/breakpointUtils';
+import { cols } from './shared';
 
 interface Position {
   x: number;
@@ -11,11 +12,6 @@ interface Position {
 let positions: Position[][] = [];
 const MAX_POS = 50;
 const BASE_SPEED = 0.2e-3;
-
-const cols = {
-  dark: 30,
-  light: 220,
-}
 
 export const TwinCircles = () => {
   const setParent = useP5DupeRemover();
@@ -28,7 +24,7 @@ export const TwinCircles = () => {
   const setup = (p5: p5, canvasParentRef: Element) => {
     setParent(canvasParentRef);
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
-    p5.background(0);
+    p5.background(cols.dark);
     p5.frameRate(60);
     p5.noStroke();
     p5.pixelDensity(1);
