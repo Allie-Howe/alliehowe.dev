@@ -3,7 +3,9 @@ import { useP5DupeRemover } from '../utils/p5DupeRemover';
 import Sketch from 'react-p5';
 import { cols } from './shared';
 
-let SHOULD_ROTATE = true;
+let shouldRotate = true;
+const SHOULD_TOGGLE_ROTATION = false
+
 
 const ROTATION_SPEED = Math.PI/(250*2)
 // TODO: Rename
@@ -38,7 +40,7 @@ export const Tmp = () => {
 
     const timing = (NEW_SPEED*p5.millis())%1;
 
-    if (SHOULD_ROTATE && timing < 0.7) rotation += ROTATION_SPEED;
+    if (shouldRotate && timing < 0.7) rotation += ROTATION_SPEED;
 
     for (let j = 1; j < NUM_REPETITIONS; j++) {
       const isEven = j % 2;
@@ -62,8 +64,8 @@ export const Tmp = () => {
   }
 
   const keyPressed = (p5: p5, e: KeyboardEvent) => {
-    if (e.code !== 'Space') return;
-    SHOULD_ROTATE = !SHOULD_ROTATE;
+    if (!SHOULD_TOGGLE_ROTATION || e.code !== 'Space') return;
+    shouldRotate = !shouldRotate;
   }
 
   return <Sketch setup={setup} draw={draw} keyPressed={keyPressed} windowResized={windowResized}/>;
