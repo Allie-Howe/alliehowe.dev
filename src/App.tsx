@@ -7,6 +7,7 @@ import { PageWrapper } from './components/PageWrapper';
 import { About } from './components/pages/About';
 import { Projects } from './components/pages/Projects';
 import { Contact } from './components/pages/Contact';
+import { FloatingIcons } from './components/FloatingIcons';
 
 export const defaultTransition = 'transition-all duration-500';
 
@@ -27,11 +28,12 @@ const screensComponentMap = {
 export default function() {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [screen, setScreen] = useState<Screen>(Screen.Splash);
+  const [zenMode, setZenMode] = useState(false);
 
   return (
     <div className='select-none bg-black text-pink-300 font-serif h-[100dvh] flex items-center justify-center flex-col'>
-      <CustomBackground backgroundIndex={backgroundIndex} />
-      <div className='absolute bg-opacity-10 bg-black w-full h-full flex items-center justify-center flex-col'>
+      <CustomBackground backgroundIndex={backgroundIndex} zenMode={zenMode} />
+      {!zenMode && <div className='absolute bg-opacity-10 bg-black w-full h-full flex items-center justify-center flex-col'>
         <div className='flex items-center justify-center flex-1'>
           {Object.entries(screensComponentMap).map(([screenName, component]) => (
             <PageWrapper key={screenName} display={screen === screenName as Screen}>
@@ -40,8 +42,8 @@ export default function() {
           ))}
         </div>
         <LinksBar screen={screen} setScreen={setScreen} />
-        <ShuffleButton setBackgroundIndex={setBackgroundIndex} />
-      </div>
+      </div>}
+        <FloatingIcons setBackgroundIndex={setBackgroundIndex} setZenMode={setZenMode} zenMode={zenMode} />
     </div>
   );
 }

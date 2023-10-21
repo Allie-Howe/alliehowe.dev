@@ -70,5 +70,7 @@ export const GameOfLife = () => {
     updateGameState();
   }
 
-  return <Sketch setup={setup} draw={draw} windowResized={windowResized}/>;
+  return <div className='blur-sm'>
+    <Sketch setup={setup} draw={draw} windowResized={windowResized}/>
+  </div>;
 };

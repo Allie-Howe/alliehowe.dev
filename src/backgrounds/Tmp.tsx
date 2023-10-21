@@ -38,9 +38,9 @@ export const Tmp = () => {
     p5.translate(p5.windowWidth / 2, p5.windowHeight / 2)
     p5.rotate((3*p5.PI)/16)
 
-    const timing = (NEW_SPEED*p5.millis())%1;
+    // const timing = (NEW_SPEED*p5.millis())%1;
 
-    if (shouldRotate && timing < 0.7) rotation += ROTATION_SPEED;
+    if (shouldRotate) rotation += ROTATION_SPEED;
 
     for (let j = 1; j < NUM_REPETITIONS; j++) {
       const isEven = j % 2;

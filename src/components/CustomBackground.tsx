@@ -17,12 +17,13 @@ export const backgroundMap = [
 
 interface CustomBackgroundProps {
   backgroundIndex: number
+  zenMode: boolean
 }
-export const CustomBackground = ({ backgroundIndex }: CustomBackgroundProps) => {
+export const CustomBackground = ({ backgroundIndex, zenMode }: CustomBackgroundProps) => {
   const CurrentComponent = backgroundMap[backgroundIndex];
 
   return (
-    <div className="h-full w-full absolute blur-sm">
+    <div className="h-full w-full absolute" style={{filter: zenMode ? undefined : 'blur(2px)'}}>
       <CurrentComponent />
     </div>
   );
