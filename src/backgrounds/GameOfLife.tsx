@@ -2,8 +2,11 @@ import p5 from 'p5';
 import { useState } from 'react';
 import { useP5DupeRemover } from '../utils/p5DupeRemover';
 import Sketch from 'react-p5';
+import { usePrevious } from '@uidotdev/usehooks';
 
 const TILE_SIZE = 10;
+
+const EMPTY_PERCENTAGE = 0.6;
 
 const cols = {
   dark: 30,
@@ -13,11 +16,15 @@ const cols = {
 export const GameOfLife = () => {
   const setParent = useP5DupeRemover();
 
+  const randomiseGrid = () => new Array(gridHeight).fill(new Array(gridLength).fill(false)).map(col => col.map(() => Math.random() > EMPTY_PERCENTAGE))
+
   // TODO: Variable framerate
   const gridLength = Math.round(window.innerWidth/TILE_SIZE);
   const gridHeight = Math.round(window.innerHeight/TILE_SIZE);
 
-  const [gameState, setGameState] = useState<boolean[][]>(new Array(gridHeight).fill(new Array(gridLength).fill(false)).map(col => col.map(() => Math.random() > 0.9)));
+  const [gameState, setGameState] = useState<boolean[][]>(randomiseGrid());
+  const prevState = usePrevious(gameState);
+  const prevPrevState = usePrevious(prevState);
 
   // TODO: Useeffect that expands/cuts grid to fit screen
   // TODO: Improve performance by only drawing changed tiles
@@ -29,6 +36,14 @@ export const GameOfLife = () => {
         p5.square(i*TILE_SIZE, j*TILE_SIZE, TILE_SIZE);
       }
     }
+  }
+
+  const checkPrevious = () => {
+    if (!prevPrevState) return;
+
+    return gameState.every((col, i) => col.every((cell, j) => (
+      cell === prevState[i][j] || cell === prevPrevState[i][j]
+    )))
   }
 
   const updateGameState = () => {
@@ -67,7 +82,8 @@ export const GameOfLife = () => {
   const draw = (p5: p5) => {
     p5.background(cols.dark);
     drawGrid(p5);
-    updateGameState();
+    const isSame = checkPrevious();
+    isSame ? setGameState(randomiseGrid()) : updateGameState();
   }
 
   return <div className='blur-sm'>
