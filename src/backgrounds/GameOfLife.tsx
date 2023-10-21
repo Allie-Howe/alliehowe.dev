@@ -6,7 +6,7 @@ import { usePrevious } from '@uidotdev/usehooks';
 
 const TILE_SIZE = 10;
 
-const EMPTY_PERCENTAGE = 0.6;
+const EMPTY_PERCENTAGE = 0.8;
 
 const cols = {
   dark: 30,
@@ -47,7 +47,7 @@ export const GameOfLife = () => {
   }
 
   const updateGameState = () => {
-    setGameState(gameState.map((row, y) => row.map((cell, x) => {
+    return gameState.map((row, y) => row.map((cell, x) => {
       const neighbours = [
         gameState[y-1]?.[x-1],
         gameState[y-1]?.[x],
@@ -63,7 +63,7 @@ export const GameOfLife = () => {
       } else {
         return neighbours === 3;
       }
-    })));
+    }));
   };
 
   const setup = (p5: p5, canvasParentRef: Element) => {
@@ -83,7 +83,7 @@ export const GameOfLife = () => {
     p5.background(cols.dark);
     drawGrid(p5);
     const isSame = checkPrevious();
-    isSame ? setGameState(randomiseGrid()) : updateGameState();
+    setGameState(isSame ? randomiseGrid() : updateGameState());
   }
 
   return <div className='blur-sm'>
