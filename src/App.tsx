@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { CustomBackground } from './components/CustomBackground';
-import { ShuffleButton } from './components/ShuffleButton';
 import { SplashScreen } from './components/SplashScreen';
 import { LinksBar } from './components/LinksBar';
 import { PageWrapper } from './components/PageWrapper';
@@ -8,6 +7,7 @@ import { About } from './components/pages/About';
 import { Projects } from './components/pages/Projects';
 import { Contact } from './components/pages/Contact';
 import { FloatingIcons } from './components/FloatingIcons';
+import { useBackgroundContext } from './backgrounds/BackgroundContext';
 
 export const defaultTransition = 'transition-all duration-500';
 
@@ -26,13 +26,12 @@ const screensComponentMap = {
 }
 
 export default function() {
-  const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [screen, setScreen] = useState<Screen>(Screen.Splash);
-  const [zenMode, setZenMode] = useState(false);
+  const {zenMode} = useBackgroundContext()
 
   return (
     <div className='select-none bg-black text-pink-300 font-serif h-[100dvh] flex items-center justify-center flex-col'>
-      <CustomBackground backgroundIndex={backgroundIndex} zenMode={zenMode} />
+      <CustomBackground />
       {!zenMode && <div className='absolute bg-opacity-10 bg-black w-full h-full flex items-center justify-center flex-col'>
         <div className='flex items-center justify-center flex-1'>
           {Object.entries(screensComponentMap).map(([screenName, component]) => (
@@ -43,7 +42,7 @@ export default function() {
         </div>
         <LinksBar screen={screen} setScreen={setScreen} />
       </div>}
-        <FloatingIcons setBackgroundIndex={setBackgroundIndex} setZenMode={setZenMode} zenMode={zenMode} />
+        <FloatingIcons />
     </div>
   );
 }

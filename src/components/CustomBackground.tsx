@@ -1,3 +1,4 @@
+import { useBackgroundContext } from '../backgrounds/BackgroundContext';
 import { GameOfLife } from '../backgrounds/GameOfLife';
 import { PlainBlack, PlainPink } from '../backgrounds/Plains';
 import { Tmp } from '../backgrounds/Tmp';
@@ -15,11 +16,9 @@ export const backgroundMap = [
   // PastelRainbow,
 ]
 
-interface CustomBackgroundProps {
-  backgroundIndex: number
-  zenMode: boolean
-}
-export const CustomBackground = ({ backgroundIndex, zenMode }: CustomBackgroundProps) => {
+export const CustomBackground = () => {
+  const {backgroundIndex, zenMode} = useBackgroundContext();
+
   const CurrentComponent = backgroundMap[backgroundIndex];
 
   return (
