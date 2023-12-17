@@ -31,10 +31,12 @@ export const NowPlaying = () => {
     getNowPlaying();
   }, [getNowPlaying]);
 
-  if (loading) return (<ScaleLoader className='mt-5' loading={loading} color='grey' />)
+  if (loading) return (<div className='flex justify-center'>
+    <ScaleLoader loading color='grey' />
+  </div>)
 
   return track && (
-    <div className='flex mt-5 font-sans items-center justify-between gap-1 max-w-full min-w-full md:px-20'>
+    <div className='flex font-sans items-center justify-between gap-1 max-w-full min-w-full md:px-20'>
       <div className='flex gap-2'>
         <img src={spotify} alt='Spotify logo' width='50px' />
         <div className='max-w-[35vw]'>
