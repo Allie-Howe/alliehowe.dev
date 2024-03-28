@@ -30,6 +30,7 @@
   mix-blend-mode: luminosity;
   width: 50px;
   aspect-ratio: 1 / 1;
+  filter: blur(2px);
   animation: bounce 1.2s ease-out infinite alternate;
   transition: transform .3s;
 }
