@@ -4,14 +4,17 @@ window.onload = () => {
 
   const buttons = document.querySelectorAll('.button')
 
-  document.addEventListener('mousemove', (e) => {
+  const onMove = (e) => {
     cursor.style.top = `${e.clientY - cursorOffset}px`
     cursor.style.left = `${e.clientX - cursorOffset}px`
 
     isOnButton(buttons, e)
       ? cursor.classList.add('hover')
       : cursor.classList.remove('hover')
-  })
+  }
+
+  document.addEventListener('touchmove', onMove);
+  document.addEventListener('mousemove', onMove)
 };
 
 function isOnButton(buttons, e) {
