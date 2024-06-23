@@ -1,35 +1,15 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import playing from '../assets/playing.webm';
 import spotify from '../assets/spotify.svg'
 import { ScaleLoader } from 'react-spinners';
 import { timeAgo } from './timeAgo';
+import { useGetTrack } from './useGetTrack';
 
-type Track = {
-  name: string
-  artist: string
-  album: string
-  image: string
-  url: string
-  nowPlaying: boolean
-  date?: Date
-}
 
 export const NowPlaying = () => {
-  const [loading, setLoading] = useState(false);
-  const [track, setTrack] = useState<Track>();
+  const {loading, track} = useGetTrack()
 
-  const getNowPlaying = useCallback(async () => {
-    setLoading(true);
-    const response = await fetch('https://alliehowe-dev-backend.adaptable.app/');
-    const data = await response.json();
-    setLoading(false);
-    setTrack({...data, date: new Date(data.date)});
-  }, [])
-
-
-  useEffect(() => {
-    getNowPlaying();
-  }, [getNowPlaying]);
+  console.log(track)
 
   if (loading) return (<div className='flex justify-center'>
     <ScaleLoader loading color='grey' />
