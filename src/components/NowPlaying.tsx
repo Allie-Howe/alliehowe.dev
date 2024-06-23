@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import playing from '../assets/playing.webm';
 import spotify from '../assets/spotify.svg'
 import { ScaleLoader } from 'react-spinners';
@@ -8,8 +7,6 @@ import { useGetTrack } from './useGetTrack';
 
 export const NowPlaying = () => {
   const {loading, track} = useGetTrack()
-
-  console.log(track)
 
   if (loading) return (<div className='flex justify-center'>
     <ScaleLoader loading color='grey' />

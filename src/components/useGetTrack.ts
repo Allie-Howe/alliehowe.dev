@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const user = 'HoweIsAllie';
-const clientKey = '3a81ff2b9fcc41ac5cd122592bc876c6'
+// I'm aware storing keys in client code is bad, even if they're not secrets. Let me have this one :(
+  const clientKey = '3a81ff2b9fcc41ac5cd122592bc876c6'
 const LAST_FM_URL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${clientKey}&format=json`
-
 
 type Track = {
   name: string
@@ -16,14 +16,14 @@ type Track = {
 }
 
 const mapRawTrackToTrack = (rawTrack: any): Track => {
-  const rawDate = rawTrack.date?.['#text']
+  const timestamp = Number(rawTrack.date?.uts * 1000)
   return {
     name: rawTrack.name,
     artist: rawTrack.artist['#text'],
     album: rawTrack.album['#text'],
     image: rawTrack.image[3]['#text'],
     url: rawTrack.url,
-    date: rawDate ? new Date(rawDate) : undefined,
+    date: timestamp ? new Date(timestamp) : undefined,
     nowPlaying: !!rawTrack['@attr']?.nowplaying,
   }
 }
