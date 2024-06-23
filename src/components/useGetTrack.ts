@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 const user = 'HoweIsAllie';
 // I'm aware storing keys in client code is bad, even if they're not secrets. Let me have this one :(
   const clientKey = '3a81ff2b9fcc41ac5cd122592bc876c6'
-const LAST_FM_URL = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${clientKey}&format=json`
+const LAST_FM_URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${clientKey}&format=json`
 
 type Track = {
   name: string
