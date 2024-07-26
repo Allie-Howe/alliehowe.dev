@@ -611,15 +611,11 @@ const colPairs = [
         fg: "#4E5"
     },
     {
-        bg: "#AAA",
-        fg: "#333"
-    },
-    {
-        bg: "#111",
-        fg: "#555"
+        bg: "#EEE",
+        fg: "#444"
     }
 ];
-const rndItem = ()=>colPairs[Math.round(Math.random() * (colPairs.length - 1))];
+const rndItem = ()=>colPairs[Math.floor(Math.random() * colPairs.length)];
 const sketch = (p5)=>{
     p5.windowResized = ()=>{
         p5.resizeCanvas(window.innerWidth, window.innerHeight);
@@ -654,9 +650,17 @@ const sketch = (p5)=>{
             });
         });
     };
-    document.addEventListener("click", p5.setup);
+    // TODO: Consider tapping top half to change color & regen, bottom to only regen
+    document.addEventListener("click", ()=>{
+        p5.setup();
+        document.querySelector("#info")?.remove();
+    });
 };
 new (0, _p5Default.default)(sketch);
+window.onload = ()=>{
+    const isMobile = window.innerWidth < 1000;
+    isMobile && document.querySelectorAll("span").forEach((span)=>span.innerHTML = "tap");
+};
 
 },{"p5":"iwHoP","@parcel/transformer-js/src/esmodule-helpers.js":"crPa1","lodash":"fAiEq"}],"iwHoP":[function(require,module,exports) {
 /*! p5.js v1.5.0 October 18, 2022 */ var global = arguments[3];
