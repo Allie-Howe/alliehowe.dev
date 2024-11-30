@@ -8,13 +8,10 @@ type Project = typeof projects[0];
 export const Projects = () => {
   return (<>
     <ContentWrapper text='projects'>
-      <div className='grid gap-10 grid-cols-1 flex-col'>
-        {projects.map((project, index) => {
-          return (<Fragment key={index}>
-          {!!index && <hr className='border-white opacity-40' />}
-          <ProjectTwo project={project} />
-          </Fragment>)
-        })}
+      <div className='grid gap-20 grid-cols-1 flex-col'>
+        {projects.map((project, index) => (
+          <ProjectTwo key={index} project={project} />
+        ))}
       </div>
     </ContentWrapper>
     </>);
