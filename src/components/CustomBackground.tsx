@@ -1,4 +1,5 @@
 import { useBackgroundContext } from '../backgrounds/BackgroundContext';
+import { ContrastingCircles } from '../backgrounds/ContrastingCircles';
 import { GameOfLife } from '../backgrounds/GameOfLife';
 import { PlainBlack } from '../backgrounds/Plains';
 import { SquareCircle } from '../backgrounds/SquareCircle';
@@ -9,6 +10,7 @@ export const backgroundMap = [
   GameOfLife,
   TwinCircles,
   SquareCircle,
+  ContrastingCircles,
   // If we're gonna use this, we need the text to change dynamically - maybe use context to store index & other data?
   // PastelRainbow,
 ]
