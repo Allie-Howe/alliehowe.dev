@@ -1,8 +1,9 @@
 import ShuffleVariantIcon from 'mdi-react/ShuffleVariantIcon';
-import { Dispatch, SetStateAction, useCallback, useState } from 'react';
-import { defaultTransition } from '../App';
+import { useState } from 'react';
 import { backgroundMap } from './CustomBackground';
 import { useBackgroundContext } from '../backgrounds/BackgroundContext';
+import { MdiReactIconComponentType } from 'mdi-react';
+import { PressableButton } from './PressableButton';
 
 export const pinks = [
   '#f9a8d5', // Hex version of Tailwind color
@@ -11,28 +12,14 @@ export const pinks = [
 
 export const ShuffleButton = () => {
   const {setBackgroundIndex} = useBackgroundContext();
-
-  const [isDown, setIsDown] = useState(false);
-  const toggleDown = useCallback(() => setIsDown(p => !p), []);
   const [glowing, setGlowing] = useState('glowing');
 
-  return (
-      <div
-        style={{
-          backgroundColor: isDown ? pinks[1] : pinks[0],
-          translate: isDown ? '0 1px' : '0 0'
-        }}
-        className={`${defaultTransition} ${glowing} h-20 w-20 bg-pink-300 rounded-full flex items-center justify-center text-black transition-all duration-75 cursor-pointer` }
-        onClick={() => {
-          setBackgroundIndex(i => (i + 1) % backgroundMap.length)
-          setGlowing('');
-        }}
-        onMouseDown={toggleDown}
-        onMouseUp={toggleDown}
-        onTouchStart={toggleDown}
-        onTouchEnd={toggleDown}
-      >
-        <ShuffleVariantIcon size='3em'/>
-      </div>
-  )
+  return <PressableButton
+    icon={<ShuffleVariantIcon size='3em'/>}
+    className={`h-20 ${glowing}`}
+    onClick={() => {
+      setBackgroundIndex(i => (i + 1) % backgroundMap.length)
+      setGlowing('');
+    }}
+  />
 };
