@@ -7,6 +7,7 @@ const speed = 0.001;
 let timing: number;
 const smallRatio = 0.85
 
+// TODO: This code was directly ported from old project, could clean up at some point
 export const Love = () => {
   const { setup, windowResized } = useP5DefaultFns((p5) => p5.noStroke())
 
