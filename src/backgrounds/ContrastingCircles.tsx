@@ -1,22 +1,18 @@
 import p5 from 'p5';
 import Sketch from 'react-p5';
-import { useP5DefaultSetup } from '../utils/useP5DefaultSetup';
+import { useP5DefaultFns } from '../utils/useP5DefaultFns';
 import { cols } from './shared';
 
 let count = 0;
 
 // TODO: This code was directly ported from old project, could clean up at some point
 export const ContrastingCircles = () => {
-  const setup = useP5DefaultSetup()
+  const { setup, windowResized } = useP5DefaultFns()
 
   const drawArcs = (p5: p5, radius: number) => { //draws two quarter-circles
     p5.arc(0, 0, radius, radius, 0, p5.HALF_PI);
     p5.arc(0, 0, radius, radius, p5.PI, p5.HALF_PI+p5.PI);
   }
-
-  const windowResized = (p5: p5) => {
-    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
-  };
 
   const draw = (p5: p5) => {
     p5.background(cols.light);

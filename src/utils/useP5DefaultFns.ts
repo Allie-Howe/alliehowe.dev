@@ -2,7 +2,8 @@ import p5 from 'p5'
 import { cols } from '../backgrounds/shared';
 import { useP5DupeRemover } from './p5DupeRemover';
 
-export const useP5DefaultSetup = () => {
+// TODO: Make sure this is used in all projects
+export const useP5DefaultFns = () => {
 const setParent = useP5DupeRemover()
 
   const setup = (p5: p5, canvasParentRef: Element) => {
@@ -17,5 +18,9 @@ const setParent = useP5DupeRemover()
     p5.rectMode(p5.CENTER)
   };
 
-  return setup
+  const windowResized = (p5: p5) => {
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+  };
+
+  return { setup, windowResized }
 }

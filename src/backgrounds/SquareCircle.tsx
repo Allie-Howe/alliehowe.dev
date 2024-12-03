@@ -1,6 +1,6 @@
 import p5 from 'p5';
 import Sketch from 'react-p5';
-import { useP5DefaultSetup } from '../utils/useP5DefaultSetup';
+import { useP5DefaultFns } from '../utils/useP5DefaultFns';
 import { cols } from './shared';
 
 const SQUARE_SIZE = 100;
@@ -12,11 +12,7 @@ const ROTATION_OFFSET = 0.1
 const ROTATION_SPEED = 1e-3;
 
 export const SquareCircle = () => {
-  const setup = useP5DefaultSetup()
-
-  const windowResized = (p5: p5) => {
-    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
-  };
+  const {setup, windowResized} = useP5DefaultFns()
 
   const draw = (p5: p5) => {
     p5.background(cols.dark);
