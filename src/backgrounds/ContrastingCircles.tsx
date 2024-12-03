@@ -1,31 +1,18 @@
 import p5 from 'p5';
 import Sketch from 'react-p5';
-import { useP5DupeRemover } from '../utils/p5DupeRemover';
+import { useP5DefaultSetup } from '../utils/useP5DefaultSetup';
 import { cols } from './shared';
 
 let count = 0;
 
 // TODO: This code was directly ported from old project, could clean up at some point
 export const ContrastingCircles = () => {
-  const setParent = useP5DupeRemover();
+  const setup = useP5DefaultSetup()
 
   const drawArcs = (p5: p5, radius: number) => { //draws two quarter-circles
     p5.arc(0, 0, radius, radius, 0, p5.HALF_PI);
     p5.arc(0, 0, radius, radius, p5.PI, p5.HALF_PI+p5.PI);
   }
-
-  const setup = (p5: p5, canvasParentRef: Element) => {
-    // TODO: Share this fn
-    setParent(canvasParentRef);
-    p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
-    p5.background(cols.dark);
-    p5.frameRate(60);
-    p5.stroke(cols.light)
-    p5.fill(cols.dark)
-    p5.strokeWeight(3)
-    p5.pixelDensity(1);
-    p5.rectMode(p5.CENTER)
-  };
 
   const windowResized = (p5: p5) => {
     p5.resizeCanvas(p5.windowWidth, p5.windowHeight);

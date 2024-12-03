@@ -1,6 +1,6 @@
 import p5 from 'p5';
 import Sketch from 'react-p5';
-import { useP5DupeRemover } from '../utils/p5DupeRemover';
+import { useP5DefaultSetup } from '../utils/useP5DefaultSetup';
 import { cols } from './shared';
 
 const SQUARE_SIZE = 100;
@@ -12,19 +12,7 @@ const ROTATION_OFFSET = 0.1
 const ROTATION_SPEED = 1e-3;
 
 export const SquareCircle = () => {
-  const setParent = useP5DupeRemover();
-
-  const setup = (p5: p5, canvasParentRef: Element) => {
-    setParent(canvasParentRef);
-    p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
-    p5.background(cols.dark);
-    p5.frameRate(60);
-    p5.stroke(cols.light)
-    p5.fill(cols.dark)
-    p5.strokeWeight(3)
-    p5.pixelDensity(1);
-    p5.rectMode(p5.CENTER)
-  };
+  const setup = useP5DefaultSetup()
 
   const windowResized = (p5: p5) => {
     p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
