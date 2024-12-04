@@ -25,7 +25,7 @@ export const PageWrapper = ({ children, display }: PropsWithChildren<PageWrapper
   }, [display]);
 
   return (
-    <div style={{ display: show ? 'unset' : 'none', opacity }} className={`${defaultTransition}`}>
+    <div style={{ display: show ? 'unset' : 'none', opacity }} className={`${defaultTransition} absolute inset-0 flex justify-center items-center w-full`}>
       {children}
     </div>
   )

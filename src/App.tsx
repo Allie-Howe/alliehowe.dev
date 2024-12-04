@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { CustomBackground } from './components/CustomBackground';
 import { SplashScreen } from './components/SplashScreen';
-import { LinksBar } from './components/LinksBar';
 import { PageWrapper } from './components/PageWrapper';
 import { About } from './components/pages/About';
 import { Contact } from './components/pages/Contact';
@@ -27,14 +26,14 @@ export default function() {
   return (
     <div className='select-none bg-black text-pink-300 font-serif h-[100dvh] flex items-center justify-center flex-col'>
       <CustomBackground />
-      {!zenMode && <div className='bg-opacity-10 bg-black w-full h-full flex items-center justify-center flex-col'>
+      {!zenMode && <div className='bg-opacity-10 bg-black w-full h-full flex flex-col'>
         <SplashScreen screen={screen} setScreen={setScreen} />
-        <div className='flex-1 relative'>
-          {Object.entries(screensComponentMap).map(([screenName, component]) => (
-            <PageWrapper key={screenName} display={screen === screenName as Screen}>
-              {component}
-            </PageWrapper>
-          ))}
+        <div className='flex-1 relative  bg-opacity-70 bg-black rounded-3xl mt-5'>
+            {Object.entries(screensComponentMap).map(([screenName, component]) => (
+              <PageWrapper key={screenName} display={screen === screenName as Screen}>
+                {component}
+              </PageWrapper>
+            ))}
         </div>
       </div>}
         <FloatingIcons />
