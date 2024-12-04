@@ -19,17 +19,14 @@ export const SplashScreen = (props: SplashScreenProps) => <div>
 </div>
 
 interface ToggleableButtonsProps extends SplashScreenProps {
-buttonScreen: Screen
-Icon: MdiReactIconComponentType
+  buttonScreen: Screen
+  Icon: MdiReactIconComponentType
 }
 const ToggleableButtons = ({screen, setScreen, buttonScreen, Icon}: ToggleableButtonsProps) => {
   return <PressableButton
-  icon={<Icon
-    {...screen !== buttonScreen && {style: {color: pinks[0]}} }
-  />}
-  className={'h-10'}
-  {...screen !== buttonScreen && {style: {backgroundColor: '#333'}} }
-  onClick={() => setScreen(buttonScreen)}
-/>
-
+    className='h-10'
+    onClick={() => setScreen(buttonScreen)}
+    icon={<Icon {...screen !== buttonScreen && {style: {color: pinks[0]}} }/>}
+    {...screen !== buttonScreen && {style: {backgroundColor: '#333'}} }
+  />
 }
