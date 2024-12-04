@@ -8,8 +8,6 @@ const SHOULD_TOGGLE_ROTATION = false
 
 
 const ROTATION_SPEED = Math.PI/(250*2)
-// TODO: Rename
-const NEW_SPEED = 5e-4/2
 const NUM_REPETITIONS = 5
 const LINE_SIZE = 80
 const NUM_LINES = 8
@@ -37,8 +35,6 @@ export const Tmp = () => {
     p5.background(cols.dark);
     p5.translate(p5.windowWidth / 2, p5.windowHeight / 2)
     p5.rotate((3*p5.PI)/16)
-
-    // const timing = (NEW_SPEED*p5.millis())%1;
 
     if (shouldRotate) rotation += ROTATION_SPEED;
 
