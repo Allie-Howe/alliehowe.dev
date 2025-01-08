@@ -8,7 +8,7 @@ interface PageWrapperProps {
 const TRANSITION_TIME = 300;
 
 export const PageWrapper = ({ children, display }: PropsWithChildren<PageWrapperProps>) => {
-  const [opacity, setOpacity] = useState(0);
+  const [opacity, setOpacity] = useState(1);
   const [show, setShow] = useState(false);
   useEffect(() => {
     if (!display) {
@@ -16,16 +16,12 @@ export const PageWrapper = ({ children, display }: PropsWithChildren<PageWrapper
       setTimeout(() => setShow(false), TRANSITION_TIME);
       return;
     }
-    setTimeout(() => {
-      setShow(true)
-      setTimeout(() => {
-        setOpacity(1)
-      }, 20)
-    }, TRANSITION_TIME);
+    setShow(true)
+    setTimeout(() => setOpacity(1), TRANSITION_TIME);
   }, [display]);
 
   return (
-    <div style={{ display: show ? 'unset' : 'none', opacity }} className={`${defaultTransition} absolute inset-0 flex justify-center items-center w-full`}>
+    <div style={{ display: show ? 'unset' : 'none', opacity }} className={`${defaultTransition} absolute`}>
       {children}
     </div>
   )
