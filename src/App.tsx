@@ -4,6 +4,7 @@ import { SplashScreen } from './components/SplashScreen';
 import { LinksBar } from './components/LinksBar';
 import { PageWrapper } from './components/PageWrapper';
 import { About } from './components/pages/About';
+import { Projects } from './components/pages/Projects';
 import { Contact } from './components/pages/Contact';
 import { FloatingIcons } from './components/FloatingIcons';
 import { useBackgroundContext } from './backgrounds/BackgroundContext';
@@ -20,6 +21,7 @@ export enum Screen {
 const screensComponentMap = {
   [Screen.Splash]: <SplashScreen />,
   [Screen.About]: <About />,
+  [Screen.Projects]: <Projects />,
   [Screen.Contact]: <Contact />,
 }
 
