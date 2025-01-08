@@ -108,38 +108,5 @@
         "url": "projects/react/password_tester/"
       }
     ]
-  },
-  {
-    "name": "js clock",
-    "description": "Vanilla JavaScript experiment - a basic, minimalist animated clock. Not much to say about this one, honestly! \n Note: not styled for mobile",
-    "imgUrl": "clock.png",
-    "buttons": [
-      {
-        "title": "visit",
-        "url": "projects/archive/js-clock/"
-      }
-    ]
-  },
-  {
-    "name": "csh line",
-    "description": "a clone/copy of Chris Shier's Line, a JS canvas-based application to allow for user-generated animations reminiscent of old iTunes and Windows Media Player music visualisers. Throughout understanding this codebase, I used dat.gui to allow for editing variables.",
-    "imgUrl": "csh-line.png",
-    "buttons": [
-      {
-        "title": "try it yourself",
-        "url": "projects/archive/csh-line/"
-      }
-    ]
-  },
-  {
-    "name": "whyl",
-    "description": "CSS experiment - a fictional automobile website designed simply because I thought the background looking like a moving road would be cool.",
-    "imgUrl": "whyl.png",
-    "buttons": [
-      {
-        "title": "visit",
-        "url": "projects/archive/whyl/"
-      }
-    ]
   }
 ]
