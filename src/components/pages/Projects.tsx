@@ -1,6 +1,4 @@
-import { Fragment } from 'react';
 import projects from '../../projects.json'
-import { NewTabLink } from './About';
 import { ContentWrapper } from './ContentWrapper';
 
 type Project = typeof projects[0];
