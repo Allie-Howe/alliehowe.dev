@@ -23,6 +23,17 @@
     ]
   },
   {
+    "name": "LIDAR Scanner",
+    "description": "Three.js unfinished experiment/proof-of-concept - a 3D world in which you can move around and scan objects. Inspired by Scanner Sombre, this is my first foray into 3D rendering for the web.",
+    "imgUrl": "lidar.png",
+    "buttons": [
+      {
+        "title": "visit",
+        "url": "projects/threejs/"
+      }
+    ]
+  },
+  {
     "name": "Old site",
     "description": "Archive of original site, made in HTML, SCSS and JavaScript from 2020-2022. I've since migrated to a more mobile first approach using React/Tailwind but this was the first full-fledged site I made and I'm still proud of it!",
     "imgUrl": "site2.png",
